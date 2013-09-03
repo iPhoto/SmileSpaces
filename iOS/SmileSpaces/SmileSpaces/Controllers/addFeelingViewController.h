@@ -1,5 +1,5 @@
 //
-//  MainViewController.h
+//  addFeelingViewController.h
 //  SmileSpaces
 //
 //  Created by Pedro Piñera Buendía on 03/09/13.
@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
-#import "PPiFlatSegmentedControl.h"
-@interface MainViewController : UIViewController<MKMapViewDelegate>
+#import "FlatUIKit.h"
+
+@interface addFeelingViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end

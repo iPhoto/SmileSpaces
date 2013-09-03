@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3D69C36A17D65E00009A780B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C36917D65E00009A780B /* MainViewController.m */; };
+		3D69C36C17D66122009A780B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69C36B17D66122009A780B /* MapKit.framework */; };
+		3D69C36E17D66127009A780B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69C36D17D66127009A780B /* CoreLocation.framework */; };
+		3D69C37017D689F0009A780B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69C36F17D689F0009A780B /* QuartzCore.framework */; };
+		3D69C37417D68BFE009A780B /* addFeelingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C37317D68BFE009A780B /* addFeelingViewController.m */; };
+		3D69C37617D68E87009A780B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D69C37517D68E87009A780B /* Localizable.strings */; };
 		3D986AE617D64DF1004ADCB1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D986AE517D64DF1004ADCB1 /* UIKit.framework */; };
 		3D986AE817D64DF1004ADCB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D986AE717D64DF1004ADCB1 /* Foundation.framework */; };
 		3D986AEA17D64DF1004ADCB1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D986AE917D64DF1004ADCB1 /* CoreGraphics.framework */; };
@@ -24,6 +29,12 @@
 /* Begin PBXFileReference section */
 		3D69C36817D65E00009A780B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Controllers/MainViewController.h; sourceTree = "<group>"; };
 		3D69C36917D65E00009A780B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controllers/MainViewController.m; sourceTree = "<group>"; };
+		3D69C36B17D66122009A780B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3D69C36D17D66127009A780B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3D69C36F17D689F0009A780B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3D69C37217D68BFE009A780B /* addFeelingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = addFeelingViewController.h; path = Controllers/addFeelingViewController.h; sourceTree = "<group>"; };
+		3D69C37317D68BFE009A780B /* addFeelingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = addFeelingViewController.m; path = Controllers/addFeelingViewController.m; sourceTree = "<group>"; };
+		3D69C37517D68E87009A780B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		3D986AE217D64DF1004ADCB1 /* SmileSpaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmileSpaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D986AE517D64DF1004ADCB1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3D986AE717D64DF1004ADCB1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -47,6 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D69C37017D689F0009A780B /* QuartzCore.framework in Frameworks */,
+				3D69C36E17D66127009A780B /* CoreLocation.framework in Frameworks */,
+				3D69C36C17D66122009A780B /* MapKit.framework in Frameworks */,
 				3D986AE617D64DF1004ADCB1 /* UIKit.framework in Frameworks */,
 				3D986AE817D64DF1004ADCB1 /* Foundation.framework in Frameworks */,
 				3D986AEA17D64DF1004ADCB1 /* CoreGraphics.framework in Frameworks */,
@@ -57,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D69C37117D68B67009A780B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3D69C37217D68BFE009A780B /* addFeelingViewController.h */,
+				3D69C37317D68BFE009A780B /* addFeelingViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		3D986AD917D64DF1004ADCB1 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +101,9 @@
 		3D986AE417D64DF1004ADCB1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D69C36F17D689F0009A780B /* QuartzCore.framework */,
+				3D69C36D17D66127009A780B /* CoreLocation.framework */,
+				3D69C36B17D66122009A780B /* MapKit.framework */,
 				3D986AE517D64DF1004ADCB1 /* UIKit.framework */,
 				3D986AE717D64DF1004ADCB1 /* Foundation.framework */,
 				3D986AE917D64DF1004ADCB1 /* CoreGraphics.framework */,
@@ -89,6 +115,7 @@
 		3D986AEB17D64DF1004ADCB1 /* SmileSpaces */ = {
 			isa = PBXGroup;
 			children = (
+				3D69C37117D68B67009A780B /* Controllers */,
 				3D986AF417D64DF1004ADCB1 /* AppDelegate.h */,
 				3D986AF517D64DF1004ADCB1 /* AppDelegate.m */,
 				3D986AFD17D64DF1004ADCB1 /* MainStoryboard.storyboard */,
@@ -109,6 +136,7 @@
 				3D986AF717D64DF1004ADCB1 /* Default.png */,
 				3D986AF917D64DF1004ADCB1 /* Default@2x.png */,
 				3D986AFB17D64DF1004ADCB1 /* Default-568h@2x.png */,
+				3D69C37517D68E87009A780B /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -171,6 +199,7 @@
 				3D986AFA17D64DF1004ADCB1 /* Default@2x.png in Resources */,
 				3D986AFC17D64DF1004ADCB1 /* Default-568h@2x.png in Resources */,
 				3D986AFF17D64DF1004ADCB1 /* MainStoryboard.storyboard in Resources */,
+				3D69C37617D68E87009A780B /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +246,7 @@
 				3D986AF217D64DF1004ADCB1 /* main.m in Sources */,
 				3D986AF617D64DF1004ADCB1 /* AppDelegate.m in Sources */,
 				3D69C36A17D65E00009A780B /* MainViewController.m in Sources */,
+				3D69C37417D68BFE009A780B /* addFeelingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

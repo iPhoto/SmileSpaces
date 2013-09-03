@@ -6,4 +6,7 @@ pod 'ADClusterMapView'
 pod 'NullSafe'
 pod 'UIKitCategoryAdditions', :git => 'https://github.com/pepibumur/UIKitCategoryAdditions.git'
 pod 'RPRadarChart', :git => 'https://github.com/pepibumur/RPRadarChart.git'
+pod 'PPiAwesomeButton', :git => 'https://github.com/pepibumur/PPiAwesomeButton.git'
+pod 'PPiFlatSegmentedControl', :git => 'https://github.com/pepibumur/PPiFlatSegmentedControl.git'
+pod 'FlatUIKit'
 inhibit_all_warnings!
