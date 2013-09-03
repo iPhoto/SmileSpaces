@@ -1,0 +1,34 @@
+PODS:
+  - ADClusterMapView (1.0.2)
+  - AFNetworking (1.3.2)
+  - NullSafe (1.2)
+  - QuickDialog (0.8)
+  - RPRadarChart (1.0.2)
+  - SVProgressHUD (0.9)
+  - UIKitCategoryAdditions (1.0.1)
+
+DEPENDENCIES:
+  - ADClusterMapView
+  - AFNetworking (~> 1.3.2)
+  - NullSafe
+  - QuickDialog
+  - RPRadarChart (from `https://github.com/pepibumur/RPRadarChart.git`)
+  - SVProgressHUD
+  - UIKitCategoryAdditions (from `https://github.com/pepibumur/UIKitCategoryAdditions.git`)
+
+EXTERNAL SOURCES:
+  RPRadarChart:
+    :git: https://github.com/pepibumur/RPRadarChart.git
+  UIKitCategoryAdditions:
+    :git: https://github.com/pepibumur/UIKitCategoryAdditions.git
+
+SPEC CHECKSUMS:
+  ADClusterMapView: 68a44d71bb6d687372cc3fd280c8bcfa17e3514d
+  AFNetworking: 7f9bcd7c287a75476cd5c61e82fd3380e93e4c54
+  NullSafe: ec359e864f3b8d9c2d81aaa2bdbac8280bba1be2
+  QuickDialog: 465692c7c599ad41a0c46022c55779dd61a4d4fe
+  RPRadarChart: 77d62638f135c2023cc32245262411eb0f4c564f
+  SVProgressHUD: 03d4845ec8e64591726428a08236c6a5489d45f8
+  UIKitCategoryAdditions: b025cdd425fa1c5ac3ea19ea2cacf25c571d9b6f
+
+COCOAPODS: 0.23.0
