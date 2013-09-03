@@ -29,7 +29,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:text="@string/center_map" />
+                android:text="@string/center_map"
+                android:textColor="@color/greensea"
+                android:textColorLink="@color/greensea" />
 
             <Button
                 android:id="@+id/addFeelingButton"
@@ -37,17 +39,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@id/centerMapButton"
                 android:layout_alignParentRight="true"
-                android:text="@string/add_feeling" />
+                android:text="@string/add_feeling"
+                android:textColor="@android:color/white" />
 
         </RelativeLayout>
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/horizontalListViewHolder"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="5" >
 
     </FrameLayout>
 
