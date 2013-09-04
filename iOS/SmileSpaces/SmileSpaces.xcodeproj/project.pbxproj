@@ -11,7 +11,7 @@
 		3D69C36C17D66122009A780B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69C36B17D66122009A780B /* MapKit.framework */; };
 		3D69C36E17D66127009A780B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69C36D17D66127009A780B /* CoreLocation.framework */; };
 		3D69C37017D689F0009A780B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69C36F17D689F0009A780B /* QuartzCore.framework */; };
-		3D69C37417D68BFE009A780B /* addFeelingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C37317D68BFE009A780B /* addFeelingViewController.m */; };
+		3D69C37417D68BFE009A780B /* feelingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C37317D68BFE009A780B /* feelingDetailViewController.m */; };
 		3D69C37617D68E87009A780B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D69C37517D68E87009A780B /* Localizable.strings */; };
 		3D986AE617D64DF1004ADCB1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D986AE517D64DF1004ADCB1 /* UIKit.framework */; };
 		3D986AE817D64DF1004ADCB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D986AE717D64DF1004ADCB1 /* Foundation.framework */; };
@@ -32,8 +32,8 @@
 		3D69C36B17D66122009A780B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3D69C36D17D66127009A780B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3D69C36F17D689F0009A780B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		3D69C37217D68BFE009A780B /* addFeelingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = addFeelingViewController.h; path = Controllers/addFeelingViewController.h; sourceTree = "<group>"; };
-		3D69C37317D68BFE009A780B /* addFeelingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = addFeelingViewController.m; path = Controllers/addFeelingViewController.m; sourceTree = "<group>"; };
+		3D69C37217D68BFE009A780B /* feelingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = feelingDetailViewController.h; path = Controllers/feelingDetailViewController.h; sourceTree = "<group>"; };
+		3D69C37317D68BFE009A780B /* feelingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = feelingDetailViewController.m; path = Controllers/feelingDetailViewController.m; sourceTree = "<group>"; };
 		3D69C37517D68E87009A780B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		3D986AE217D64DF1004ADCB1 /* SmileSpaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmileSpaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D986AE517D64DF1004ADCB1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -74,8 +74,8 @@
 		3D69C37117D68B67009A780B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3D69C37217D68BFE009A780B /* addFeelingViewController.h */,
-				3D69C37317D68BFE009A780B /* addFeelingViewController.m */,
+				3D69C37217D68BFE009A780B /* feelingDetailViewController.h */,
+				3D69C37317D68BFE009A780B /* feelingDetailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -246,7 +246,7 @@
 				3D986AF217D64DF1004ADCB1 /* main.m in Sources */,
 				3D986AF617D64DF1004ADCB1 /* AppDelegate.m in Sources */,
 				3D69C36A17D65E00009A780B /* MainViewController.m in Sources */,
-				3D69C37417D68BFE009A780B /* addFeelingViewController.m in Sources */,
+				3D69C37417D68BFE009A780B /* feelingDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

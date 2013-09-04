@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "FlatUIKit.h"
 
-@interface addFeelingViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface feelingDetailViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end

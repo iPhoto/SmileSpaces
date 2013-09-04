@@ -46,10 +46,10 @@
     [self.locationButton setIsAwesome:YES];
     [self.locationButton setButtonIcon:@"icon-location-arrow"];
     [self.locationButton setButtonText:@"" ];
-    [self.locationButton setTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15],NSForegroundColorAttributeName:[UIColor colorWithRed:22.0f/255 green:160.0f/255 blue:133.0f/255 alpha:1.0],@"IconFont":[UIFont fontWithName:@"FontAwesome" size:19]} forUIControlState:UIControlStateNormal];
-    [self.locationButton setTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15],NSForegroundColorAttributeName:[UIColor whiteColor],@"IconFont":[UIFont fontWithName:@"FontAwesome" size:19]} forUIControlState:UIControlStateHighlighted];
-    [self.locationButton setBackgroundColor:[UIColor whiteColor] forUIControlState:UIControlStateNormal];
-    [self.locationButton setBackgroundColor:[UIColor colorWithRed:22.0f/255 green:160.0f/255 blue:133.0f/255 alpha:1.0] forUIControlState:UIControlStateHighlighted];
+    [self.locationButton setTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15],NSForegroundColorAttributeName:[UIColor whiteColor]} forUIControlState:UIControlStateNormal];
+    [self.locationButton setTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15],NSForegroundColorAttributeName:[UIColor whiteColor],@"IconFont":[UIFont fontWithName:@"FontAwesome" size:16]} forUIControlState:UIControlStateHighlighted];
+    [self.locationButton setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.3] forUIControlState:UIControlStateNormal];
+    [self.locationButton setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.5] forUIControlState:UIControlStateHighlighted];
     self.locationButton.frame=CGRectMake(10, 10, 44, 44);
     [self.locationButton setRadius:0.0];
     [self.locationButton addTarget:self action:@selector(centerUserMap:) forControlEvents:UIControlEventTouchUpInside];
@@ -66,11 +66,11 @@
     [self.feelButton setButtonIcon:@"icon-heart"];
     [self.feelButton setIconPosition:IconPositionLeft];
     [self.feelButton setButtonText:@"Add feeling" ];
-    [self.feelButton setTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:[UIColor whiteColor],@"IconFont":[UIFont fontWithName:@"FontAwesome" size:19]} forUIControlState:UIControlStateNormal];
-    [self.feelButton setTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:[UIColor colorWithRed:22.0f/255 green:160.0f/255 blue:133.0f/255 alpha:1.0],@"IconFont":[UIFont fontWithName:@"FontAwesome" size:19]} forUIControlState:UIControlStateHighlighted];
+    [self.feelButton setTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15],NSForegroundColorAttributeName:[UIColor whiteColor],@"IconFont":[UIFont fontWithName:@"FontAwesome" size:16]} forUIControlState:UIControlStateNormal];
+    [self.feelButton setTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15],NSForegroundColorAttributeName:[UIColor whiteColor],@"IconFont":[UIFont fontWithName:@"FontAwesome" size:16]} forUIControlState:UIControlStateHighlighted];
 
-    [self.feelButton setBackgroundColor:[UIColor colorWithRed:22.0f/255 green:160.0f/255 blue:133.0f/255 alpha:1.0] forUIControlState:UIControlStateNormal];
-    [self.feelButton setBackgroundColor:[UIColor whiteColor] forUIControlState:UIControlStateHighlighted];
+    [self.feelButton setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.3] forUIControlState:UIControlStateNormal];
+    [self.feelButton setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.5] forUIControlState:UIControlStateHighlighted];
     self.feelButton.frame=CGRectMake(55, 10, 170, 44);
     [self.feelButton setRadius:0.0];
     [self.feelButton setSeparation:2];
@@ -91,7 +91,7 @@
 }
 #pragma mark - Actions
 -(IBAction)addFeeling:(id)sender{
-    [self performSegueWithIdentifier:@"addFeeling" sender:self];
+    [self performSegueWithIdentifier:@"feelingDetail" sender:self];
 }
 -(IBAction)centerUserMap:(id)sender{
     [self mapView:self.mapView didUpdateUserLocation:self.mapView.userLocation];
