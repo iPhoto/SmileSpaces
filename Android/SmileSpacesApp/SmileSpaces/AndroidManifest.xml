@@ -39,6 +39,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.trobi.smilespaces.AddfeelingActivity"
+            android:label="@string/title_activity_addfeeling" >
+        </activity>
+        <activity
+            android:name="com.trobi.smilespaces.CellInfoActivity"
+            android:label="@string/title_activity_cell_info" android:theme="@android:style/Theme.Holo.Light.NoActionBar">
+        </activity>
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"

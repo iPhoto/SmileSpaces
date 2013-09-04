@@ -1,5 +1,6 @@
 package com.trobi.smilespaces;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.location.Location;
 import android.location.LocationListener;
@@ -14,12 +15,13 @@ import android.widget.Toast;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MainActivity extends FragmentActivity implements LocationListener {
+public class MainActivity extends FragmentActivity implements LocationListener, OnMarkerClickListener {
 
 	private static final long MIN_TIME = 400;
 	private static final float MIN_DISTANCE = 200;
@@ -47,7 +49,10 @@ public class MainActivity extends FragmentActivity implements LocationListener {
 		currentLatLngMarker = map.addMarker(new MarkerOptions()
 		.position(currentLatLng)
 		.visible(false)
-		.title(getResources().getString(R.string.marker_me)));
+		.title(getResources().getString(R.string.marker_me))
+		.snippet(getResources().getString(R.string.marker_me_snippet)));
+		
+		map.setOnMarkerClickListener(this);
 
 		// Button Views
 		Typeface fontawesome = Typeface.createFromAsset(getAssets(), "fontawesome.ttf");
@@ -82,11 +87,27 @@ public class MainActivity extends FragmentActivity implements LocationListener {
 	public void onLocationChanged(Location location) {
 		currentLatLng = new LatLng(location.getLatitude(), location.getLongitude());
 	}
-
 	@Override
 	public void onProviderDisabled(String provider) {}
 	@Override
 	public void onProviderEnabled(String provider) {}
 	@Override
 	public void onStatusChanged(String provider, int status, Bundle extras) {}
+	
+	/**
+	 * OnMarkerClickListener callback method
+	 */
+	
+	@Override
+	public boolean onMarkerClick(Marker clickedMarker) {
+		if(clickedMarker.getTitle().equals(getResources().getString(R.string.marker_me))){
+			locationManager.removeUpdates(this);
+			
+			Intent intent = new Intent(getApplicationContext(), CellInfoActivity.class);
+			intent.putExtra("currentLat", String.valueOf(currentLatLng.latitude));
+			intent.putExtra("currentLon", String.valueOf(currentLatLng.longitude));
+			startActivity(intent);
+		}
+		return true;
+	}
 }

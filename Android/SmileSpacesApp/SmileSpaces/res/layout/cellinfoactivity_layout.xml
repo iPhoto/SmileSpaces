@@ -1,0 +1,29 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CellInfoActivity" >
+
+    <ImageView
+        android:id="@+id/backgroudImageView_low"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/test_background"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/backgroudImageView_high"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/test_background"
+        android:visibility="gone" />
+
+    <com.trobi.viewclasses.CardListView
+        android:id="@+id/cellInfoListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent" />
+
+</FrameLayout>
