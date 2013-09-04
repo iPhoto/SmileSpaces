@@ -15,6 +15,7 @@
 @property (nonatomic,strong) NSTimer *photosTimer;
 @property (strong, nonatomic) DKLiveBlurView *imageView1;
 @property (strong, nonatomic) DKLiveBlurView *imageView2;
+@property (nonatomic) NSInteger currentAccuracy;
 @end
 
 @implementation feelingDetailViewController
@@ -33,26 +34,13 @@
     [super viewDidLoad];
 	
     //Customizing background color
-    self.view.backgroundColor=[UIColor colorWithWhite:0.03 alpha:1.0];
-    
-    //Customizing blur effect
-    self.imageView1=[[DKLiveBlurView alloc] initWithFrame: self.view.bounds];
-    self.imageView2=[[DKLiveBlurView alloc] initWithFrame: self.view.bounds];
-    [self.view addSubview:self.imageView1];
-    [self.view addSubview:self.imageView2];
-    [self.view sendSubviewToBack:self.imageView1];
-    [self.view sendSubviewToBack:self.imageView2];
-    self.imageView1.alpha=1.0;
-    self.imageView2.alpha=0.0;
-    self.imageView1.scrollView = self.tableView;
-    self.imageView2.scrollView = self.tableView;
-    self.imageView1.glassColor=[UIColor blackColor];
-    self.imageView2.glassColor=[UIColor blackColor];
-    self.imageView1.isGlassEffectOn = YES;
-    self.imageView2.isGlassEffectOn = YES;
+    self.view.backgroundColor=[UIColor colorWithWhite:0.90 alpha:1.0];
     
     //Starting the timer
-    [self.photosTimer fire];
+    //[self.photosTimer fire];
+    
+    //Setting currentAccuracy to initial Value
+    self.currentAccuracy=16;
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -74,26 +62,31 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if(section==0){
-        return 0;
-    }else if ( section == 1){
-        return 0;
-    }else if ( section == 2){
-        return 20;
+        return 1+20;
     }
     return 0;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return 1;
 }
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if(section==0){
         UIView *headerView=[tableView dequeueReusableCellWithIdentifier:@"topHeader"];
+        UIButton *showButton=(UIButton*)[headerView viewWithTag:2];
+        [showButton addTarget:self action:@selector(showChart) forControlEvents:UIControlEventTouchUpInside];
+        UIButton *resetButton=(UIButton*)[headerView viewWithTag:3];
+        [resetButton addTarget:self action:@selector(resetChart) forControlEvents:UIControlEventTouchUpInside];
+        
         return headerView;
-    }else if (section == 1){
+    }
+    return nil;
+}
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.section ==0 && indexPath.row ==0){
         UITableViewCell *graphCell= [tableView dequeueReusableCellWithIdentifier:@"graphCell"];
         RPRadarChart *chart=(RPRadarChart*)[graphCell viewWithTag:1];
         if(!chart){
-            chart = [[RPRadarChart alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.width/2-[UIScreen mainScreen].bounds.size.width*0.3, [UIScreen mainScreen].bounds.size.width*0.6, [UIScreen mainScreen].bounds.size.width*0.6)];
+            chart = [[RPRadarChart alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2-[UIScreen mainScreen].bounds.size.width*0.35,0, [UIScreen mainScreen].bounds.size.width*0.7, [UIScreen mainScreen].bounds.size.width*0.7)];
             chart.tag=1;
             chart.showGuideNumbers=NO;
             chart.showValues=NO;
@@ -107,7 +100,10 @@
                            [UIColor whiteColor],
                            ];
             chart.backgroundColor=[UIColor clearColor];
+            chart.dotColor=[UIColor whiteColor];
+            chart.lineColor=[UIColor whiteColor];
             [graphCell addSubview:chart];
+            
         }
         chart.values = [NSDictionary dictionaryWithObjectsAndKeys:
                         [NSNumber numberWithFloat:10.0f],@"Health",
@@ -115,31 +111,27 @@
                         [NSNumber numberWithFloat:30.0f],@"Beer",
                         [NSNumber numberWithFloat:40.0f],@"Friends",
                         [NSNumber numberWithFloat:50.0f],@"Party",
-                        [NSNumber numberWithFloat:60.0f],@"More party",
                         nil];
         
         return graphCell;
     }else{
-        return nil;
-    }
-}
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.section==0 || indexPath.section==1){
-        return nil;
-    }else{
-        return [tableView dequeueReusableCellWithIdentifier:@"basicDataCell"];
+        UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"basicDataCell"];
+        cell.contentView.backgroundColor=[UIColor colorWithRed:24.0f/255 green:41.0f/255 blue:54.0f/255 alpha:1.0];
+
+        return cell;
     }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 44;
+    if(indexPath.section ==0 && indexPath.row ==0){
+        return [UIScreen mainScreen].bounds.size.height*0.5;
+    }else{
+        return 49;
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if(section==0){
-        return [UIScreen mainScreen].bounds.size.height*0.5;
-;
-    }else if ( section == 1){
-        return [UIScreen mainScreen].bounds.size.height*0.5;
+        return 44;
     }
     return 0;
 }
@@ -207,7 +199,8 @@
                                @"lon":@"0.003390",
                                @"accuracy":@"14",
                                @"geo_context":@"2",//Outdoors
-                               @"per_page":@"100"}; 
+                               @"per_page":@"100",
+                               @"extras":@"url_l"};
         AFHTTPClient *client=[[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://ycpi.api.flickr.com/services/rest/"]];
         [client getPath:nil parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"Photographs downloaded");
@@ -228,5 +221,31 @@
         
     }
     return _photosArray;
+}
+
+
+#pragma mark - Debug
+-(void)resetChart{
+    UITableViewCell *cell =[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    RPRadarChart *chart=(RPRadarChart*)[cell viewWithTag:1];
+    chart.values = [NSDictionary dictionaryWithObjectsAndKeys:
+                    [NSNumber numberWithFloat:0.1f],@"Health",
+                    [NSNumber numberWithFloat:0.1f],@"Love",
+                    [NSNumber numberWithFloat:0.1f],@"Beer",
+                    [NSNumber numberWithFloat:0.1f],@"Friends",
+                    [NSNumber numberWithFloat:0.1f],@"Party",
+                    nil];
+}
+-(void)showChart{
+    UITableViewCell *cell =[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    RPRadarChart *chart=(RPRadarChart*)[cell viewWithTag:1];
+    chart.values = [NSDictionary dictionaryWithObjectsAndKeys:
+                    [NSNumber numberWithFloat:10.0f],@"Health",
+                    [NSNumber numberWithFloat:20.0f],@"Love",
+                    [NSNumber numberWithFloat:30.0f],@"Beer",
+                    [NSNumber numberWithFloat:40.0f],@"Friends",
+                    [NSNumber numberWithFloat:50.0f],@"Party",
+                    nil];
+    
 }
 @end

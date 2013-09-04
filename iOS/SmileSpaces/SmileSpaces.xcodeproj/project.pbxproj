@@ -13,6 +13,9 @@
 		3D69C37017D689F0009A780B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69C36F17D689F0009A780B /* QuartzCore.framework */; };
 		3D69C37417D68BFE009A780B /* feelingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C37317D68BFE009A780B /* feelingDetailViewController.m */; };
 		3D69C37617D68E87009A780B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D69C37517D68E87009A780B /* Localizable.strings */; };
+		3D69C37817D7A186009A780B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69C37717D7A186009A780B /* SystemConfiguration.framework */; };
+		3D69C37A17D7A1A8009A780B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69C37917D7A1A8009A780B /* MobileCoreServices.framework */; };
+		3D69C37D17D7E4BB009A780B /* addFeelingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C37C17D7E4BB009A780B /* addFeelingViewController.m */; };
 		3D986AE617D64DF1004ADCB1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D986AE517D64DF1004ADCB1 /* UIKit.framework */; };
 		3D986AE817D64DF1004ADCB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D986AE717D64DF1004ADCB1 /* Foundation.framework */; };
 		3D986AEA17D64DF1004ADCB1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D986AE917D64DF1004ADCB1 /* CoreGraphics.framework */; };
@@ -35,6 +38,10 @@
 		3D69C37217D68BFE009A780B /* feelingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = feelingDetailViewController.h; path = Controllers/feelingDetailViewController.h; sourceTree = "<group>"; };
 		3D69C37317D68BFE009A780B /* feelingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = feelingDetailViewController.m; path = Controllers/feelingDetailViewController.m; sourceTree = "<group>"; };
 		3D69C37517D68E87009A780B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		3D69C37717D7A186009A780B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3D69C37917D7A1A8009A780B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		3D69C37B17D7E4BB009A780B /* addFeelingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = addFeelingViewController.h; path = Controllers/addFeelingViewController.h; sourceTree = "<group>"; };
+		3D69C37C17D7E4BB009A780B /* addFeelingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = addFeelingViewController.m; path = Controllers/addFeelingViewController.m; sourceTree = "<group>"; };
 		3D986AE217D64DF1004ADCB1 /* SmileSpaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmileSpaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D986AE517D64DF1004ADCB1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3D986AE717D64DF1004ADCB1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -58,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D69C37A17D7A1A8009A780B /* MobileCoreServices.framework in Frameworks */,
+				3D69C37817D7A186009A780B /* SystemConfiguration.framework in Frameworks */,
 				3D69C37017D689F0009A780B /* QuartzCore.framework in Frameworks */,
 				3D69C36E17D66127009A780B /* CoreLocation.framework in Frameworks */,
 				3D69C36C17D66122009A780B /* MapKit.framework in Frameworks */,
@@ -76,6 +85,8 @@
 			children = (
 				3D69C37217D68BFE009A780B /* feelingDetailViewController.h */,
 				3D69C37317D68BFE009A780B /* feelingDetailViewController.m */,
+				3D69C37B17D7E4BB009A780B /* addFeelingViewController.h */,
+				3D69C37C17D7E4BB009A780B /* addFeelingViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -83,6 +94,8 @@
 		3D986AD917D64DF1004ADCB1 = {
 			isa = PBXGroup;
 			children = (
+				3D69C37917D7A1A8009A780B /* MobileCoreServices.framework */,
+				3D69C37717D7A186009A780B /* SystemConfiguration.framework */,
 				3D986AEB17D64DF1004ADCB1 /* SmileSpaces */,
 				3D986AE417D64DF1004ADCB1 /* Frameworks */,
 				3D986AE317D64DF1004ADCB1 /* Products */,
@@ -247,6 +260,7 @@
 				3D986AF617D64DF1004ADCB1 /* AppDelegate.m in Sources */,
 				3D69C36A17D65E00009A780B /* MainViewController.m in Sources */,
 				3D69C37417D68BFE009A780B /* feelingDetailViewController.m in Sources */,
+				3D69C37D17D7E4BB009A780B /* addFeelingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

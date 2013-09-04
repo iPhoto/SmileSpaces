@@ -13,9 +13,9 @@
     #import <Foundation/Foundation.h>
     #import <QuartzCore/QuartzCore.h>
     #import "AFHTTPClient.h"
-#import "UIImageView+AFNetworking.h"
-#import "XMLDictionary.h"
-#define sharedDelegate (AppDelegate*)[[UIApplication sharedApplication] delegate]
+    #import "UIImageView+AFNetworking.h"
+    #import "XMLDictionary.h"
+    #define sharedDelegate (AppDelegate*)[[UIApplication sharedApplication] delegate]
 #define flickr_api_key @"c852c1e7a730e7e1214c47ed6797f9b5"
 
 #endif

@@ -60,7 +60,7 @@
                         <outlet property="feelButton" destination="bkd-xQ-TBN" id="e3C-bx-ASa"/>
                         <outlet property="locationButton" destination="zN4-Gp-ikR" id="Mg5-Us-TyW"/>
                         <outlet property="mapView" destination="2vz-cW-s1S" id="J7b-Sa-K5b"/>
-                        <segue destination="Onx-gP-vKj" kind="modal" identifier="information" id="Jeh-pm-00S"/>
+                        <segue destination="Onx-gP-vKj" kind="modal" identifier="addFeeling" id="Jeh-pm-00S"/>
                         <segue destination="8X6-7C-i37" kind="modal" identifier="feelingDetail" id="3Ld-63-Qai"/>
                     </connections>
                 </viewController>
@@ -68,10 +68,10 @@
             </objects>
             <point key="canvasLocation" x="91" y="-147"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Feeling View Controller-->
         <scene sceneID="2vh-T1-rhV">
             <objects>
-                <viewController id="VJ9-G5-6SX" sceneMemberID="viewController">
+                <viewController id="VJ9-G5-6SX" customClass="addFeelingViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nIr-AN-MDd">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -91,7 +91,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="A0M-9t-2FG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="A0M-9t-2FG">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -103,7 +103,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfG-ij-nqp">
-                                                    <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="0.086274509799999996" green="0.62745098040000002" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Zone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lA6-HB-oGY">
                                                     <constraints>
@@ -118,9 +118,9 @@
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="lA6-HB-oGY" firstAttribute="centerY" secondItem="qfG-ij-nqp" secondAttribute="centerY" type="default" id="6rT-n2-ggr"/>
                                             <constraint firstItem="qfG-ij-nqp" firstAttribute="trailing" secondItem="k3r-A0-kww" secondAttribute="trailing" type="default" id="9cJ-C6-O1P"/>
-                                            <constraint firstItem="lA6-HB-oGY" firstAttribute="top" secondItem="k3r-A0-kww" secondAttribute="top" constant="11" id="PSg-nH-JrT"/>
-                                            <constraint firstItem="lA6-HB-oGY" firstAttribute="centerY" secondItem="qfG-ij-nqp" secondAttribute="centerY" type="default" id="dwi-El-ogi"/>
+                                            <constraint firstItem="lA6-HB-oGY" firstAttribute="top" secondItem="k3r-A0-kww" secondAttribute="top" constant="11" id="Okz-gO-agK"/>
                                             <constraint firstItem="qfG-ij-nqp" firstAttribute="leading" secondItem="k3r-A0-kww" secondAttribute="leading" type="default" id="gUk-UF-wlZ"/>
                                             <constraint firstItem="qfG-ij-nqp" firstAttribute="top" secondItem="k3r-A0-kww" secondAttribute="top" type="default" id="muC-4P-a2B"/>
                                             <constraint firstItem="qfG-ij-nqp" firstAttribute="centerX" secondItem="lA6-HB-oGY" secondAttribute="centerX" type="default" id="quo-sa-3Ve"/>
@@ -134,11 +134,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ved-km-NmA">
-                                                    <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="0.15686274510000001" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Zone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xuf-gl-MZR">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Number of shops" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xuf-gl-MZR">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="218" id="blQ-Zx-CYe"/>
+                                                        <constraint firstAttribute="width" constant="257" id="6s6-KV-peq"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -147,21 +147,21 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.082352941176470587" green="0.49803921568627452" blue="0.41568627450980389" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="ved-km-NmA" firstAttribute="trailing" secondItem="JVS-FB-aTN" secondAttribute="trailing" type="default" id="0Uz-DA-BUt"/>
+                                            <constraint firstItem="ved-km-NmA" firstAttribute="leading" secondItem="JVS-FB-aTN" secondAttribute="leading" type="default" id="Bsc-kE-JVa"/>
+                                            <constraint firstItem="Xuf-gl-MZR" firstAttribute="leading" secondItem="JVS-FB-aTN" secondAttribute="leading" constant="12" id="Odg-yG-5gE"/>
+                                            <constraint firstItem="ved-km-NmA" firstAttribute="top" secondItem="JVS-FB-aTN" secondAttribute="top" type="user" id="aSA-uO-cqh"/>
                                             <constraint firstItem="Xuf-gl-MZR" firstAttribute="centerY" secondItem="ved-km-NmA" secondAttribute="centerY" type="default" id="aTt-wz-PBw"/>
-                                            <constraint firstItem="ved-km-NmA" firstAttribute="top" secondItem="JVS-FB-aTN" secondAttribute="top" type="default" id="dM0-Ws-62m"/>
                                             <constraint firstItem="Xuf-gl-MZR" firstAttribute="top" secondItem="JVS-FB-aTN" secondAttribute="top" constant="11" id="ioU-JK-Bd5"/>
-                                            <constraint firstItem="Xuf-gl-MZR" firstAttribute="centerX" secondItem="ved-km-NmA" secondAttribute="centerX" type="default" id="lPN-dP-tnM"/>
-                                            <constraint firstAttribute="trailing" secondItem="ved-km-NmA" secondAttribute="trailing" constant="20" type="default" id="nqH-vd-M6s"/>
-                                            <constraint firstItem="ved-km-NmA" firstAttribute="leading" secondItem="JVS-FB-aTN" secondAttribute="leading" constant="20" type="default" id="ot6-H9-pte"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="graphCell" rowHeight="44" id="Lk2-Eq-EkP">
-                                        <rect key="frame" x="0.0" y="110" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="graphCell" rowHeight="194" id="Lk2-Eq-EkP">
+                                        <rect key="frame" x="0.0" y="110" width="320" height="194"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="193"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -209,26 +209,6 @@
             <point key="canvasLocation" x="552" y="513"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="MainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="feelButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="infoButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="locationButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="feelingDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/feelingDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

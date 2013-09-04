@@ -91,7 +91,7 @@
 }
 #pragma mark - Actions
 -(IBAction)addFeeling:(id)sender{
-    [self performSegueWithIdentifier:@"feelingDetail" sender:self];
+    [self performSegueWithIdentifier:@"addFeeling" sender:self];
 }
 -(IBAction)centerUserMap:(id)sender{
     [self mapView:self.mapView didUpdateUserLocation:self.mapView.userLocation];
