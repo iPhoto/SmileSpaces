@@ -73,7 +73,3 @@ pod 'APParallaxHeader'
 - **Fran Díaz**: GodFather of Felix and 
 - **LLorens Delgado**: Android Developer
 - **Pedro Piñera**: iOS Developer
-
-
-
-![image](http://www.pbh2.com/wordpress/wp-content/uploads/2013/05/cutest-cat-gifs-please.gif)
