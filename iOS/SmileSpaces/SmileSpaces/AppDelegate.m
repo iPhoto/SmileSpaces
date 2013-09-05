@@ -7,12 +7,19 @@
 //
 
 #import "AppDelegate.h"
-
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard"
+                                                             bundle: nil];
+    
+    self.viewController = (UIViewController*)[mainStoryboard
+                                                       instantiateViewControllerWithIdentifier: @"initialViewController"];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							

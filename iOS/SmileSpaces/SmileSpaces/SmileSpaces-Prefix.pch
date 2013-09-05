@@ -3,7 +3,7 @@
 //
 
 #import <Availability.h>
-
+#import "AppDelegate.h"
 #ifndef __IPHONE_5_0
 #warning "This project uses features only available in iOS SDK 5.0 and later."
 #endif
@@ -11,4 +11,20 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import <QuartzCore/QuartzCore.h>
+    #import "AFHTTPClient.h"
+    #import "UIImageView+AFNetworking.h"
+    #import "XMLDictionary.h"
+    #import "UIScrollView+APParallaxHeader.h"
+    #import "FlatUIKit.h"
+    #define sharedDelegate (AppDelegate*)[[UIApplication sharedApplication] delegate]
+#define flickr_api_key @"c852c1e7a730e7e1214c47ed6797f9b5"
+
+
+
+
+//Styles
+#define background_grey [UIColor colorWithWhite:0.90 alpha:1.0]
+#define marine_green [UIColor colorWithRed:22.0f/255 green:160.0f/255 blue:133.0f/255 alpha:1.0]
+#define marine_green_dark [UIColor colorWithRed:18.0f/255 green:137.0f/255 blue:114.0f/255 alpha:1.0]
 #endif

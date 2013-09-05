@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import "PPiFlatSegmentedControl.h"
+#import <ADClusterMapView.h>
+#import "ADClusterAnnotation.h"
 
-@interface MainViewController : UIViewController
-
+@interface MainViewController : UIViewController<ADClusterMapViewDelegate>
+-(IBAction)centerMapInUser;
 @end
