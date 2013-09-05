@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3D40A40517D948520054B3D3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D40A40417D948520054B3D3 /* Icon@2x.png */; };
 		3D40A40717D9485B0054B3D3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D40A40617D9485B0054B3D3 /* Icon.png */; };
+		3D40A40917D94E550054B3D3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D40A40817D94E550054B3D3 /* Default-568h@2x.png */; };
+		3D40A40B17D94E570054B3D3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D40A40A17D94E570054B3D3 /* Default@2x.png */; };
+		3D40A40D17D94E5A0054B3D3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D40A40C17D94E5A0054B3D3 /* Default.png */; };
 		3D69C36A17D65E00009A780B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C36917D65E00009A780B /* MainViewController.m */; };
 		3D69C36C17D66122009A780B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69C36B17D66122009A780B /* MapKit.framework */; };
 		3D69C36E17D66127009A780B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69C36D17D66127009A780B /* CoreLocation.framework */; };
@@ -44,7 +47,6 @@
 		3D986AF217D64DF1004ADCB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D986AF117D64DF1004ADCB1 /* main.m */; };
 		3D986AF617D64DF1004ADCB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D986AF517D64DF1004ADCB1 /* AppDelegate.m */; };
 		3D986AF817D64DF1004ADCB1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D986AF717D64DF1004ADCB1 /* Default.png */; };
-		3D986AFA17D64DF1004ADCB1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D986AF917D64DF1004ADCB1 /* Default@2x.png */; };
 		3D986AFC17D64DF1004ADCB1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D986AFB17D64DF1004ADCB1 /* Default-568h@2x.png */; };
 		3D986AFF17D64DF1004ADCB1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D986AFD17D64DF1004ADCB1 /* MainStoryboard.storyboard */; };
 		49EA4A8AAFF44852AD0C37EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4406AAA0BEF24ECE8B3C705B /* libPods.a */; };
@@ -53,6 +55,9 @@
 /* Begin PBXFileReference section */
 		3D40A40417D948520054B3D3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		3D40A40617D9485B0054B3D3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		3D40A40817D94E550054B3D3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		3D40A40A17D94E570054B3D3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		3D40A40C17D94E5A0054B3D3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3D69C36817D65E00009A780B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Controllers/MainViewController.h; sourceTree = "<group>"; };
 		3D69C36917D65E00009A780B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controllers/MainViewController.m; sourceTree = "<group>"; };
 		3D69C36B17D66122009A780B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -231,6 +236,9 @@
 		3D986AD917D64DF1004ADCB1 = {
 			isa = PBXGroup;
 			children = (
+				3D40A40C17D94E5A0054B3D3 /* Default.png */,
+				3D40A40A17D94E570054B3D3 /* Default@2x.png */,
+				3D40A40817D94E550054B3D3 /* Default-568h@2x.png */,
 				3D40A40617D9485B0054B3D3 /* Icon.png */,
 				3D40A40417D948520054B3D3 /* Icon@2x.png */,
 				3D986AEB17D64DF1004ADCB1 /* SmileSpaces */,
@@ -352,7 +360,6 @@
 			files = (
 				3D986AF017D64DF1004ADCB1 /* InfoPlist.strings in Resources */,
 				3D986AF817D64DF1004ADCB1 /* Default.png in Resources */,
-				3D986AFA17D64DF1004ADCB1 /* Default@2x.png in Resources */,
 				3D986AFC17D64DF1004ADCB1 /* Default-568h@2x.png in Resources */,
 				3D986AFF17D64DF1004ADCB1 /* MainStoryboard.storyboard in Resources */,
 				3D69C37617D68E87009A780B /* Localizable.strings in Resources */,
@@ -369,6 +376,9 @@
 				3D69C3CF17D8FCAF009A780B /* VUnhappyAnnotation@2x.png in Resources */,
 				3D40A40517D948520054B3D3 /* Icon@2x.png in Resources */,
 				3D40A40717D9485B0054B3D3 /* Icon.png in Resources */,
+				3D40A40917D94E550054B3D3 /* Default-568h@2x.png in Resources */,
+				3D40A40B17D94E570054B3D3 /* Default@2x.png in Resources */,
+				3D40A40D17D94E5A0054B3D3 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
