@@ -677,7 +677,7 @@
                     break;
                 }
             }
-            titleLabel.text=NSLocalizedString(@"EducativeCenters", nil);
+            titleLabel.text=NSLocalizedString(@"RailwayStation", nil);
             if(RailwayStation){
                 valueLabel.text=[NSString stringWithFormat:@"%d%%",[RailwayStation[@"value"] intValue]];
                 [animated setPercentage:[RailwayStation[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
