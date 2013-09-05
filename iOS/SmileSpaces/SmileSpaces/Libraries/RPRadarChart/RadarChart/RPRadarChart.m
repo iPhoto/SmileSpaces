@@ -90,9 +90,7 @@
     
     //NSDictionary *d = (key == nil) ? values : [values objectForKey:key] ;
     
-    UIColor *flColor = fillColor;
     UIColor *stColor = lineColor;
-    UIColor *dtColor = dotColor;
     
     if(colors != nil && key != nil)
     {

@@ -48,6 +48,20 @@
     
     //Downloading information of zone
     [self getZoneInformation];
+    
+    //Adding FLAT bar button
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
+    [button setBackgroundColor:[UIColor midnightBlueColor]];
+    [button setTitle:NSLocalizedString(@"Back", nil) forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *barBack=[[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.leftBarButtonItem=barBack;
+}
+
+-(void)back{
+    // Going back
+    [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -95,6 +109,14 @@
     return 6;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //------------------------------------------------------------------------------//
+    // Detecting which cell are we presenting to decide which cell we have to reuse //
+    //------------------------------------------------------------------------------//
+
+    /**
+     *	CHART CELL 
+     */
     if(indexPath.section ==0 && indexPath.row ==0){
         UITableViewCell *graphCell= [tableView dequeueReusableCellWithIdentifier:@"graphCell"];
         RPRadarChart *chart=(RPRadarChart*)[graphCell viewWithTag:1];
@@ -747,6 +769,14 @@
 }
 #pragma mark - ACtions
 -(void)getZoneInformation{
+    /**
+     *	Getting the information of the zone. With the zoneID and usign REST we get the needed info to update the tableView
+     */
+    
+    //Showing SVProgressHUD
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading", nil)];
+
+    
     AFHTTPClient *client=[[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://trobi.me/"]];
     [client getPath:[NSString stringWithFormat:@"api/1/Data/%@",self.zoneId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Zones: %@",operation.responseString);
@@ -757,9 +787,14 @@
         @catch (NSException *e) {
             
         }
+        @finally {
+            //Dismiss SVProgressHUD
+            [SVProgressHUD dismiss];
+        }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+        //Dismiss SVProgressHUD
+        [SVProgressHUD dismiss];
     }];
 
 }

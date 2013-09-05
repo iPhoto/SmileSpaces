@@ -41,21 +41,25 @@
     //Set the navigation bar hidden
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
+    
+    //Setting the title
     self.title=NSLocalizedString(@"addFeeling", nil);
     
     
-    //Adding paralax
-    [self.tableview reloadData];
-    NSString *path=@"api/staticmap?center=51.502835,0.003047&zoom=14&size=640x160&sensor=true";
-    AFHTTPClient *client=[[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://maps.googleapis.com/maps/"]];
-    [client getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [self.tableview addParallaxWithImage:[UIImage imageWithData:operation.responseData] andHeight:160];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-    }];
+    //Adding FLAT bar button
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
+    [button setBackgroundColor:[UIColor midnightBlueColor]];
+    [button setTitle:NSLocalizedString(@"Back", nil) forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *barBack=[[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.leftBarButtonItem=barBack;
     
 }
-
+-(void)back{
+    // Going back
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -76,12 +80,17 @@
         total += 1; //Title
         return total;
     }else if ( section == 1){
-        return 6;
+        // Social cells
+        return 4;
+    }
+    else if ( section == 2){
+        // Send Cell
+        return 1;
     }
     return 0;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return 3;
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
@@ -90,7 +99,7 @@
     return footerView;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ( indexPath.row==0){ //The title of section
+    if ( indexPath.row==0 && indexPath.section!=2){ //The title of section
         UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"titleCell"];
         UILabel *headerTitle=(UILabel*)[cell viewWithTag:1];        
         switch (indexPath.section) {
@@ -168,9 +177,10 @@
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         
         //Getting views
-        UIImageView *imageView=(UIImageView*)[cell viewWithTag:1];
         UILabel *titleLabel=(UILabel*)[cell viewWithTag:2];
         FUISwitch *cellSwitch=(FUISwitch*)[cell viewWithTag:3];
+        UILabel *iconLabel=(UILabel*)[cell viewWithTag:4];
+         iconLabel.font=[UIFont fontWithName:@"FontAwesome" size:15];
         
         //Setting values
         cellSwitch.onColor = [UIColor turquoiseColor];
@@ -183,24 +193,17 @@
         switch (indexPath.row) {
             case 1:
                 titleLabel.text=@"Facebook";
-                [imageView setImage:[UIImage imageNamed:@"facebook-icon"]];
+                iconLabel.text=[NSString fontAwesomeIconStringForEnum:FAIconFacebook];
                 break;
             case 2:
                 titleLabel.text=@"Twitter";
-                [imageView setImage:[UIImage imageNamed:@"twitter-icon"]];
+                iconLabel.text=[NSString fontAwesomeIconStringForEnum:FAIconTwitter];
                 break;
             case 3:
-                titleLabel.text=@"Path";
-                [imageView setImage:[UIImage imageNamed:@"path-icon"]];
-                break;
-            case 4:
                 titleLabel.text=@"Github";
-                [imageView setImage:[UIImage imageNamed:@"github-icon"]];
+                iconLabel.text=[NSString fontAwesomeIconStringForEnum:FAIconGithub];
                 break;
-            case 5:
-                titleLabel.text=@"Instagram";
-                [imageView setImage:[UIImage imageNamed:@"instagram-icon"]];
-                break;
+
             default:
                 break;
         }
@@ -209,13 +212,26 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
+    }else if (indexPath.section ==2 && indexPath.row ==0){ //Send button
+        
+        UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"basicCell"];
+        
+        //Setting the format
+        cell.contentView.backgroundColor=[UIColor colorWithRed:18.0f/255 green:137.0f/255 blue:114.0f/255 alpha:1.0];
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        
+        
+        //Getting views
+        UILabel *titleLabel=(UILabel*)[cell viewWithTag:2];
+        titleLabel.text=NSLocalizedString(@"SendFeeling", nil);
+
+        
+        return cell;
     }
+    return nil;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.row==0){ //Section title
-        return 50;
-    }
     if(indexPath.section ==0 && indexPath.row ==0){ //Color title
         return 45;
     }else if(indexPath.section ==0 && indexPath.row ==1){ //Color selection

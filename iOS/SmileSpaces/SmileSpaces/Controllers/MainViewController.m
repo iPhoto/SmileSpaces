@@ -122,7 +122,12 @@
     
 }
 #pragma mark - Actions
+-(IBAction)centerUserMap:(id)sender{
+    [self.mapView setRegion:MKCoordinateRegionMake(self.mapView.userLocation.coordinate, MKCoordinateSpanMake(0.01, 0.01)) animated:YES];
+
+}
 -(IBAction)addFeeling:(id)sender{
+    // Opening add feeling View Controller to add a new Feeling
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard"
                                                              bundle: nil];
     
@@ -132,25 +137,13 @@
 
     
 }
--(IBAction)centerUserMap:(id)sender{
-}
-
-#pragma mark - MapView Delegate
-- (void)mapView:(MKMapView *)aMapView didUpdateUserLocation:(MKUserLocation *)aUserLocation {
-    /*MKCoordinateRegion region;
-    MKCoordinateSpan span;
-    span.latitudeDelta = mapSpan;
-    span.longitudeDelta = mapSpan;
-    CLLocationCoordinate2D location;
-    location.latitude = aUserLocation.coordinate.latitude;
-    location.longitude = aUserLocation.coordinate.longitude;
-    region.span = span;
-    region.center = location;
-    [aMapView setRegion:region animated:YES];*/
-}
 
 #pragma mark - Server
 -(void)downloadZones{
+    //Showing SVProgressHUD
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading", nil)];
+    
+    
     AFHTTPClient *client=[[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://trobi.me/"]];
     [client getPath:@"api/1/Cell/City/1" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Zones: %@",operation.responseString);
@@ -163,14 +156,21 @@
                 [pins addObject:newZone];
             }
             self.zonesArray=pins;
+            
+            //Updating mapView with PINS
             [self updateMapView];
         }
         @catch (NSException *e) {
             
         }
+        @finally {
+            //Dismiss SVProgressHUD
+            [SVProgressHUD dismiss];
+        }
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+        //Dismiss SVProgressHUD
+        [SVProgressHUD dismiss];
     }];
 }
 -(void)updateMapView{
@@ -179,6 +179,14 @@
 }
 
 #pragma mark - ADClusterMapViewDelegate
+/**
+ *	This method return the annotation View for a given Annotation
+ *
+ *	@param	mapView	mapView where annotations are going to be shown
+ *	@param	annotation	annotation to be attached to a view
+ *
+ *	@return	the annotation view of the given annotation
+ */
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     if([annotation isKindOfClass:[MKUserLocation class]]) {
         return nil;
@@ -195,6 +203,11 @@
         pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation
                                                reuseIdentifier:@"ADClusterableAnnotation"];
     }
+    
+    //Getting the zone linked and depending on the smileValue we set an icon or another
+    // SMILE FACE   //
+    //--------------//
+    
     Zone *zoneAnnotation = [[[(ADClusterAnnotation *)annotation cluster] annotation] annotation];
     if (zoneAnnotation.smileValue.intValue>=0 && zoneAnnotation.smileValue.intValue<25) {
         pinView.image = [UIImage imageNamed:@"VUnhappyAnnotation.png"];
@@ -213,7 +226,17 @@
     return pinView;
 }
 
+/**
+ *	This method return the annotation View for a given Annotation
+ *
+ *	@param	mapView	mapView where annotations are going to be shown
+ *	@param	annotation	annotation to be attached to a view
+ *
+ *	@return	the annotation view of the given annotation
+ */
 - (MKAnnotationView *)mapView:(ADClusterMapView *)mapView viewForClusterAnnotation:(id<MKAnnotation>)annotation {
+    
+    
     MKAnnotationView * pinView = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ADMapCluster"];
     if (!pinView) {
         pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation
@@ -272,6 +295,10 @@
         
         //Callout para paradas normales
         if ([view.reuseIdentifier isEqualToString:@"ADClusterableAnnotation"]) {
+            //We get the zone associated to the annotation
+            //Generate detailViewController of this zone
+            //Show its information in a more detailed way
+            
             ADClusterAnnotation *annotation = (ADClusterAnnotation*)[view annotation];
             Zone *zone = [[[(ADClusterAnnotation *) annotation cluster] annotation] annotation];
             
@@ -280,28 +307,22 @@
             
             feelingDetailViewController *controller = (feelingDetailViewController*)[mainStoryboard
                                                                instantiateViewControllerWithIdentifier: @"feelingDetail"];
+            //Setting the properties to the ViewController
             controller.zoneId=zone.zoneId;
             controller.zoneDict=zone.zoneDict;
+            
+            //Presenting
             [self.navigationController pushViewController:controller animated:YES];
             
             //Callout para Clusters
         }else if([view.reuseIdentifier isEqualToString:@"ADMapCluster"]){
-            
+            //The annotation is a cluster ( of other annotations )
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"getCloserMap", nil)];
         }
     }
     
 }
 
--(void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
-    for (UIView *subview in mapView.subviews ){
-        /*if ([subview isKindOfClass:[CalloutView class]]) {
-            [subview removeFromSuperview];
-        }*/
-    }
-    for (UIView *subview in view.subviews) {
-        [subview removeFromSuperview];
-    }
-}
 -(IBAction)centerMapInUser{
     [self.mapView setRegion:MKCoordinateRegionMake(self.mapView.userLocation.coordinate, MKCoordinateSpanMake(0.01, 0.01)) animated:YES];
 }

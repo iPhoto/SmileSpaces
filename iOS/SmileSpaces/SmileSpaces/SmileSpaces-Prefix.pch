@@ -17,6 +17,7 @@
     #import "XMLDictionary.h"
     #import "UIScrollView+APParallaxHeader.h"
     #import "FlatUIKit.h"
+#import "SVProgressHUD.h"
     #define sharedDelegate (AppDelegate*)[[UIApplication sharedApplication] delegate]
 #define flickr_api_key @"c852c1e7a730e7e1214c47ed6797f9b5"
 
