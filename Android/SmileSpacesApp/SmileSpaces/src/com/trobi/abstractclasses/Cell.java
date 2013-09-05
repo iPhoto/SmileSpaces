@@ -9,106 +9,109 @@ import com.google.android.gms.maps.model.LatLng;
 public class Cell {
 
 	public int cell_id;
-	public Felix cell_felixData;
-	public Hexagon cell_hexagon; //Cell's grid info for drawing on map.
-	
-	/**
-	 * Constructor + JSON parser
-	 * @param cellJSONResponse Result of response.getJSONObject("cell")
-	 * @throws JSONException try/catch needed.
-	 */
-	public Cell(JSONObject cellJSONResponse) throws JSONException{
-		cell_id = cellJSONResponse.getInt("cell_id");
-		cell_hexagon = new Hexagon(cellJSONResponse.getJSONArray("hexagon"));
-		cell_felixData = new Felix(cellJSONResponse.getJSONObject("felix"));
+	public LatLng cellLatLon;
+
+	public int smileValue = 0;
+	public int felixEnvironment = 0;
+	public int felixSecurity = 0;
+	public int felixCultural = 0;
+	public int felixOpinion = 0;
+	public int felixServices = 0;
+
+	public int museums = 0;
+	public int sportsCenters = 0;
+	public int bookShops = 0;
+	public int theaters = 0;
+	public int touristAttractions = 0;
+	public int leisureAreas = 0;
+	public int parks = 0;
+	public int country = 0;
+	public int ecologicalFootprint = 0;
+	public int co2Emissions = 0;
+	public int trees = 0;
+	public int acousticPullution = 0;
+	public int happySurveis = 0;
+	public int stealing = 0;
+	public int fires = 0;
+	public int crimeRatio = 0;
+	public int publicToilets = 0;
+	public int schools = 0;
+	public int suicideRate = 0;
+	public int hospitals = 0;
+	public int healthCenters = 0;
+	public int educationalCenters = 0;
+	public int railwayStations = 0;
+
+	public Cell(int cell_id){
+		this.cell_id = cell_id;
 	}
-
-	/*
-	 * Subclasses
-	 */
 	
-	public class Hexagon{
-		private LatLng polygonCorner[] = new LatLng[6];
-		private LatLng polygonCenter;
+	public Cell(int cell_id, double latitude, double longitude){
+		this.cell_id = cell_id;
+		this.cellLatLon = new LatLng(latitude, longitude);
+	}
+	
+	public void parseCellDataValues(JSONArray cellValuesJSONResponse) throws JSONException{
+		
+		for (int i = 1; i < cellValuesJSONResponse.length(); i++) {
+			JSONObject cellValue = cellValuesJSONResponse.getJSONObject(i);
 
-		public Hexagon(JSONArray hexagonCoordJSON) throws JSONException{
-			JSONObject centerLatLng = hexagonCoordJSON.getJSONObject(0);
-			polygonCenter = new LatLng(centerLatLng.getDouble("lat"), centerLatLng.getDouble("lon"));
-
-			for (int i = 1; i < hexagonCoordJSON.length(); i++) {
-				JSONObject coordLatLon = hexagonCoordJSON.getJSONObject(i);
-				polygonCorner[i-1] = new LatLng(coordLatLon.getDouble("lat"), coordLatLon.getDouble("lon"));
+			if(cellValue.getString("dataType").equals("Museos")){
+				museums = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("SportsCenters")){
+				sportsCenters = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("Librerias")){
+				bookShops = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("Teatros")){
+				theaters = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("TouristAttractions")){
+				touristAttractions = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("LocalesOcio")){
+				leisureAreas = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("Parques")){
+				parks = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("Huertas")){
+				country = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("HuellaEcologica")){
+				ecologicalFootprint = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("CO2Emissions")){
+				co2Emissions = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("Arboles")){
+				trees = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("ContaminacionRuido")){
+				acousticPullution = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("HappySurveis")){
+				happySurveis = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("Robos")){
+				stealing = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("Incencios")){
+				fires = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("CrimeRatio")){
+				crimeRatio = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("PublicToilets")){
+				publicToilets = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("Schools")){
+				schools = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("SuicideRate")){
+				suicideRate = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("Hospitales")){
+				hospitals = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("HealthCenters")){
+				healthCenters = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("CentrosEducativos")){
+				educationalCenters = cellValue.getInt("value");
+			}else if(cellValue.getString("dataType").equals("RailwayStation")){
+				railwayStations = cellValue.getInt("value");
 			}
 		}
-		
-		public LatLng[] getPolygonCorners(){
-			return polygonCorner;
-		}
-		public LatLng getPolygonCenter(){
-			return polygonCenter;
-		}
 	}
 	
-	public class Felix{
-		private int smilevalue;
-		private int felixsecurity;
-		private int felixenvironment;
-		private int felixopinion;
-		private int felixcultural;
-		private int felixservices;
-		private int felixparam6;
-		
-		public Felix(JSONObject felixJSONObject) throws JSONException{
-			this.felixcultural = felixJSONObject.getInt("felixcultural");
-			this.felixenvironment = felixJSONObject.getInt("felixenvironment");
-			this.felixopinion = felixJSONObject.getInt("felixopinion");
-			this.felixsecurity = felixJSONObject.getInt("felixsecurity");
-			this.felixservices = felixJSONObject.getInt("felixservices");
-			this.felixparam6 = felixJSONObject.getInt("felixparam6");
-		}
-		
-		public int getSmilevalue() {
-			return smilevalue;
-		}
-		public void setSmilevalue(int smilevalue) {
-			this.smilevalue = smilevalue;
-		}
-		public int getFelixsecurity() {
-			return felixsecurity;
-		}
-		public void setFelixsecurity(int felixsecurity) {
-			this.felixsecurity = felixsecurity;
-		}
-		public int getFelixenvironment() {
-			return felixenvironment;
-		}
-		public void setFelixenvironment(int felixenvironment) {
-			this.felixenvironment = felixenvironment;
-		}
-		public int getFelixopinion() {
-			return felixopinion;
-		}
-		public void setFelixopinion(int felixopinion) {
-			this.felixopinion = felixopinion;
-		}
-		public int getFelixcultural() {
-			return felixcultural;
-		}
-		public void setFelixcultural(int felixcultural) {
-			this.felixcultural = felixcultural;
-		}
-		public int getFelixservices() {
-			return felixservices;
-		}
-		public void setFelixservices(int felixservices) {
-			this.felixservices = felixservices;
-		}
-		public int getFelixparam6() {
-			return felixparam6;
-		}
-		public void setFelixparam6(int felixparam6) {
-			this.felixparam6 = felixparam6;
-		}
-	}
-
+	public void parseFelixParameters(JSONObject cellFelixValuesJSONResponse) throws JSONException{
+		smileValue = cellFelixValuesJSONResponse.getInt("smileValue");
+		felixCultural = cellFelixValuesJSONResponse.getInt("felixCultural");
+		felixEnvironment = cellFelixValuesJSONResponse.getInt("felixEnvironment");
+		felixOpinion = cellFelixValuesJSONResponse.getInt("felixOpinion");
+		felixSecurity = cellFelixValuesJSONResponse.getInt("felixSecurity");
+		felixServices = cellFelixValuesJSONResponse.getInt("felixServices");
+	}	
 }
