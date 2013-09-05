@@ -339,7 +339,7 @@
                 minValue = v;
         }
     }
-    maxValue += (maxValue - minValue)/10;
+    maxValue =100;
     [self setNeedsDisplay];
 }
 

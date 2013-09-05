@@ -62,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="652" y="180"/>
+            <point key="canvasLocation" x="674" y="191"/>
         </scene>
         <!--Add Feeling View Controller-->
         <scene sceneID="2vh-T1-rhV">
@@ -340,7 +340,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKm-fB-EDT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1096" y="517"/>
+            <point key="canvasLocation" x="1414" y="191"/>
         </scene>
         <!--Feeling Detail View Controller-->
         <scene sceneID="OhY-VZ-5gi">
@@ -502,9 +502,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZTr-8x-wjq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1134" y="-217"/>
+            <point key="canvasLocation" x="1042" y="191"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="ADClusterMapView" superclassName="MKMapView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ADClusterMapView.h"/>
+        </class>
+        <class className="FUISwitch" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FUISwitch.h"/>
+        </class>
+        <class className="ILHuePickerView" superclassName="ILView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ILHuePickerView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
+        <class className="ILView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ILView.h"/>
+        </class>
+        <class className="MainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="centerMapInUser"/>
+                <relationship kind="outlet" name="feelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="infoButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="locationButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mapView" candidateClass="ADClusterMapView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="addFeelingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/addFeelingViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableview" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="animatedProgress" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/animatedProgress.h"/>
+        </class>
+        <class className="feelingDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/feelingDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
