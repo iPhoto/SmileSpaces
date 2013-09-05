@@ -88,6 +88,7 @@ class Data(db.Model):
     lat = db.Column(db.String(20))
     lon = db.Column(db.String(20))
     dataType = db.Column(db.String(50))
+    dataValue = db.Column(db.String(50))
     date = db.Column(db.String(100))
     sourceId = db.Column(db.String(20))
     cell_id = db.Column(db.Integer, db.ForeignKey('cell.id'))
@@ -100,6 +101,7 @@ class Data(db.Model):
     def serialize(self):
        return {
             'id'            : self.id,
+            'value'         : self.dataValue,
             'lat'           : self.lat,
             'lon'           : self.lon,
             'dataType'      : self.dataType,
