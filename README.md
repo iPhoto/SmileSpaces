@@ -1,5 +1,6 @@
 SmileSpaces Platform
 ===========
+![image](http://img27.imageshack.us/img27/8845/bukb.png)
 
 SmileSpaces is a interesting platform to find the best happy areas in your city according to many factors, curltural, healthy, users... Thanks to our advanced algorith "Felix" and exhaustive data analysis. Moreover you'll have a full API REST for implementing your own solution with our data. In our repo you'll find iOS and Android applications to have an idea of what you can do :)
 
@@ -60,5 +61,17 @@ pod 'APParallaxHeader'
 - Information Screen with some settings.
 - Active notifications
 - Gamification in users profiles 
-# Android Backend
 
+## Android Backend
+
+
+## Team
+- **Isaac Roldán**: Web/Backend developer and Felix's father
+![image](http://imageshack.us/a/img22/4400/69bw.png)
+- **Fran Díaz**: GodFather of Felix and 
+- **LLorens Delgado**: Android Developer
+- **Pedro Piñera**: iOS Developer
+![image](http://imageshack.us/a/img546/7083/adv1.png)
+
+
+![image](http://www.pbh2.com/wordpress/wp-content/uploads/2013/05/cutest-cat-gifs-please.gif)
