@@ -30,6 +30,11 @@
 		3D69C3BA17D8B1E7009A780B /* RPRadarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C3B817D8B1E7009A780B /* RPRadarChart.m */; };
 		3D69C3BB17D8B1E7009A780B /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 3D69C3B917D8B1E7009A780B /* README.mdown */; };
 		3D69C3BF17D8E2B5009A780B /* animatedProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C3BE17D8E2B5009A780B /* animatedProgress.m */; };
+		3D69C3C317D8F205009A780B /* Zone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C3C217D8F205009A780B /* Zone.m */; };
+		3D69C3CC17D8FCAF009A780B /* HappyAnnotation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D69C3C817D8FCAF009A780B /* HappyAnnotation@2x.png */; };
+		3D69C3CD17D8FCAF009A780B /* UnhappyAnnotation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D69C3C917D8FCAF009A780B /* UnhappyAnnotation@2x.png */; };
+		3D69C3CE17D8FCAF009A780B /* VHappyAnnotation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D69C3CA17D8FCAF009A780B /* VHappyAnnotation@2x.png */; };
+		3D69C3CF17D8FCAF009A780B /* VUnhappyAnnotation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D69C3CB17D8FCAF009A780B /* VUnhappyAnnotation@2x.png */; };
 		3D986AE617D64DF1004ADCB1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D986AE517D64DF1004ADCB1 /* UIKit.framework */; };
 		3D986AE817D64DF1004ADCB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D986AE717D64DF1004ADCB1 /* Foundation.framework */; };
 		3D986AEA17D64DF1004ADCB1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D986AE917D64DF1004ADCB1 /* CoreGraphics.framework */; };
@@ -77,6 +82,12 @@
 		3D69C3B917D8B1E7009A780B /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.mdown; sourceTree = "<group>"; };
 		3D69C3BD17D8E2B5009A780B /* animatedProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = animatedProgress.h; path = Controls/animatedProgress.h; sourceTree = "<group>"; };
 		3D69C3BE17D8E2B5009A780B /* animatedProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = animatedProgress.m; path = Controls/animatedProgress.m; sourceTree = "<group>"; };
+		3D69C3C117D8F205009A780B /* Zone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zone.h; sourceTree = "<group>"; };
+		3D69C3C217D8F205009A780B /* Zone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zone.m; sourceTree = "<group>"; };
+		3D69C3C817D8FCAF009A780B /* HappyAnnotation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HappyAnnotation@2x.png"; sourceTree = "<group>"; };
+		3D69C3C917D8FCAF009A780B /* UnhappyAnnotation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UnhappyAnnotation@2x.png"; sourceTree = "<group>"; };
+		3D69C3CA17D8FCAF009A780B /* VHappyAnnotation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VHappyAnnotation@2x.png"; sourceTree = "<group>"; };
+		3D69C3CB17D8FCAF009A780B /* VUnhappyAnnotation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VUnhappyAnnotation@2x.png"; sourceTree = "<group>"; };
 		3D986AE217D64DF1004ADCB1 /* SmileSpaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmileSpaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D986AE517D64DF1004ADCB1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3D986AE717D64DF1004ADCB1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -155,6 +166,10 @@
 		3D69C38F17D8224C009A780B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3D69C3C817D8FCAF009A780B /* HappyAnnotation@2x.png */,
+				3D69C3C917D8FCAF009A780B /* UnhappyAnnotation@2x.png */,
+				3D69C3CA17D8FCAF009A780B /* VHappyAnnotation@2x.png */,
+				3D69C3CB17D8FCAF009A780B /* VUnhappyAnnotation@2x.png */,
 				3D69C39017D8224C009A780B /* Icons */,
 			);
 			path = Resources;
@@ -200,6 +215,15 @@
 			name = Controls;
 			sourceTree = "<group>";
 		};
+		3D69C3C017D8F205009A780B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3D69C3C117D8F205009A780B /* Zone.h */,
+				3D69C3C217D8F205009A780B /* Zone.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		3D986AD917D64DF1004ADCB1 = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +261,7 @@
 		3D986AEB17D64DF1004ADCB1 /* SmileSpaces */ = {
 			isa = PBXGroup;
 			children = (
+				3D69C3C017D8F205009A780B /* Classes */,
 				3D69C3BC17D8E25C009A780B /* Controls */,
 				3D69C38F17D8224C009A780B /* Resources */,
 				3D69C37E17D7EED0009A780B /* Libraries */,
@@ -332,6 +357,10 @@
 				3D69C39A17D8224C009A780B /* path-icon.png in Resources */,
 				3D69C39C17D8230A009A780B /* twitter-icon.png in Resources */,
 				3D69C3BB17D8B1E7009A780B /* README.mdown in Resources */,
+				3D69C3CC17D8FCAF009A780B /* HappyAnnotation@2x.png in Resources */,
+				3D69C3CD17D8FCAF009A780B /* UnhappyAnnotation@2x.png in Resources */,
+				3D69C3CE17D8FCAF009A780B /* VHappyAnnotation@2x.png in Resources */,
+				3D69C3CF17D8FCAF009A780B /* VUnhappyAnnotation@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +416,7 @@
 				3D69C38E17D7EF03009A780B /* UIColor+GetHSB.m in Sources */,
 				3D69C3BA17D8B1E7009A780B /* RPRadarChart.m in Sources */,
 				3D69C3BF17D8E2B5009A780B /* animatedProgress.m in Sources */,
+				3D69C3C317D8F205009A780B /* Zone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

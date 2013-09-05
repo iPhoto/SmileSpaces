@@ -8,9 +8,11 @@
 
 #import "MainViewController.h"
 #import "UIButton+PPiAwesome.h"
-#define mapSpan 0.005
+#import "Zone.h"
+#import "feelingDetailViewController.h"
+#define mapSpan 0.1
 @interface MainViewController ()
-@property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) IBOutlet ADClusterMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIButton *locationButton, *infoButton, *feelButton;
 @property (nonatomic, strong) NSArray *zonesArray;
 @end
@@ -32,6 +34,9 @@
 	
     //Initialize all necesary in MainViewController View
     [self initializeAll];
+    
+    //Downloading points
+    [self downloadZones];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,6 +56,25 @@
 }
 
 -(void)initializeAll{
+    
+    //Mapview Initialize
+    self.mapView = [[ADClusterMapView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.mapView setDelegate:self];
+    [self.view addSubview:self.mapView];
+    [self.view sendSubviewToBack:self.mapView];
+    [self.mapView setShowsUserLocation:YES];
+    [self.mapView setUserTrackingMode:MKUserTrackingModeNone];
+    
+    //Centering in london
+    MKCoordinateRegion region;
+    MKCoordinateSpan span;
+    span.latitudeDelta = mapSpan;
+    span.longitudeDelta = mapSpan;
+    CLLocationCoordinate2D location=CLLocationCoordinate2DMake(51.508449, -0.120850);
+    region.span = span;
+    region.center = location;
+    [self.mapView setRegion:region animated:YES];
+    
     //Location Button
     [self.locationButton setIsAwesome:YES];
     [self.locationButton setButtonIcon:@"icon-location-arrow"];
@@ -92,10 +116,6 @@
 
     [self.view addSubview:self.feelButton];
     
-    //Map
-    [self.mapView setShowsUserLocation:YES];
-    self.mapView.delegate = self;
-    
     //Customizing navigation Bar
     [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
 
@@ -107,18 +127,17 @@
                                                              bundle: nil];
     
     UIViewController *controller = (UIViewController*)[mainStoryboard
-                                                       instantiateViewControllerWithIdentifier: @"feelingDetail"];
+                                                       instantiateViewControllerWithIdentifier: @"addFeeling"];
     [self.navigationController pushViewController:controller animated:YES];
 
     
 }
 -(IBAction)centerUserMap:(id)sender{
-    [self mapView:self.mapView didUpdateUserLocation:self.mapView.userLocation];
 }
 
 #pragma mark - MapView Delegate
 - (void)mapView:(MKMapView *)aMapView didUpdateUserLocation:(MKUserLocation *)aUserLocation {
-    MKCoordinateRegion region;
+    /*MKCoordinateRegion region;
     MKCoordinateSpan span;
     span.latitudeDelta = mapSpan;
     span.longitudeDelta = mapSpan;
@@ -127,14 +146,165 @@
     location.longitude = aUserLocation.coordinate.longitude;
     region.span = span;
     region.center = location;
-    [aMapView setRegion:region animated:YES];
+    [aMapView setRegion:region animated:YES];*/
 }
 
 #pragma mark - Server
 -(void)downloadZones{
+    AFHTTPClient *client=[[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://trobi.me/"]];
+    [client getPath:@"api/1/Cell/City/1" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Zones: %@",operation.responseString);
+        @try{
+            //Getting the points and updating MapView
+            NSArray *array=[NSJSONSerialization JSONObjectWithData:operation.responseData options:kNilOptions error:nil][@"results"];
+            NSMutableArray *pins=[NSMutableArray array];
+            for (NSDictionary *zone in array){
+                Zone *newZone=[[Zone alloc] initWithDict:zone];
+                [pins addObject:newZone];
+            }
+            self.zonesArray=pins;
+            [self updateMapView];
+        }
+        @catch (NSException *e) {
+            
+        }
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+}
+-(void)updateMapView{
+    //Reload mapview annotations
+    [self.mapView setAnnotations:self.zonesArray];
+}
+
+#pragma mark - ADClusterMapViewDelegate
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    if([annotation isKindOfClass:[MKUserLocation class]]) {
+        return nil;
+    }
+    MKAnnotationView * pinView = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ADClusterableAnnotation"];
+    
+    if (!pinView) {
+        pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation
+                                               reuseIdentifier:@"ADClusterableAnnotation"];
+    }
+    else {
+        pinView.annotation = annotation;
+        
+        pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation
+                                               reuseIdentifier:@"ADClusterableAnnotation"];
+    }
+    Zone *zoneAnnotation = [[[(ADClusterAnnotation *)annotation cluster] annotation] annotation];
+    if (zoneAnnotation.smileValue.intValue>=0 && zoneAnnotation.smileValue.intValue<25) {
+        pinView.image = [UIImage imageNamed:@"VUnhappyAnnotation.png"];
+        
+    }else if (zoneAnnotation.smileValue.intValue>=25 && zoneAnnotation.smileValue.intValue<50) {
+        pinView.image = [UIImage imageNamed:@"UnhappyAnnotation.png"];
+        
+    }else if (zoneAnnotation.smileValue.intValue>=50 && zoneAnnotation.smileValue.intValue<75) {
+        pinView.image = [UIImage imageNamed:@"HappyAnnotation.png"];
+        
+    }else if (zoneAnnotation.smileValue.intValue>=75 && zoneAnnotation.smileValue.intValue<100) {
+        pinView.image = [UIImage imageNamed:@"VHappyAnnotation.png"];
+        
+    }
+    pinView.canShowCallout = NO;
+    return pinView;
+}
+
+- (MKAnnotationView *)mapView:(ADClusterMapView *)mapView viewForClusterAnnotation:(id<MKAnnotation>)annotation {
+    MKAnnotationView * pinView = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ADMapCluster"];
+    if (!pinView) {
+        pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation
+                                               reuseIdentifier:@"ADMapCluster"];
+    }            
+    else {
+        pinView.annotation = annotation;
+        
+        pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation
+                                               reuseIdentifier:@"ADClusterableAnnotation"];
+    }
+    //Calculating the average of origina annotations
+    NSArray *annotations = [[(ADClusterAnnotation *)annotation cluster] originalAnnotations];
+    float average=0;
+    int total =0;
+    for (ADMapPointAnnotation *zone in annotations){
+        average+=[((Zone*)zone.annotation).smileValue intValue];
+        total++;
+    }
+    average=average/total;
+    if (average>=0 && average<25) {
+        pinView.image = [UIImage imageNamed:@"VUnhappyAnnotation.png"];
+        
+    }else if (average>=25 && average<50) {
+        pinView.image = [UIImage imageNamed:@"UnhappyAnnotation.png"];
+        
+    }else if (average>=50 && average<75) {
+        pinView.image = [UIImage imageNamed:@"HappyAnnotation.png"];
+        
+    }else if (average>=75 && average<100) {
+        pinView.image = [UIImage imageNamed:@"VHappyAnnotation.png"];
+        
+    }
+    pinView.canShowCallout = NO;
+
+    return pinView;
+}
+
+
+
+- (void)mapViewDidFinishClustering:(ADClusterMapView *)mapView {
+    NSLog(@"Done");
+}
+
+- (NSInteger)numberOfClustersInMapView:(ADClusterMapView *)mapView {
+    return 50;
+}
+
+- (double)clusterDiscriminationPowerForMapView:(ADClusterMapView *)mapView {
+    return 1.0;
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    if(![view.annotation isKindOfClass:[MKUserLocation class]]) {
+        [mapView setCenterCoordinate:[[view annotation] coordinate] animated:YES];
+        
+        //Callout para paradas normales
+        if ([view.reuseIdentifier isEqualToString:@"ADClusterableAnnotation"]) {
+            ADClusterAnnotation *annotation = (ADClusterAnnotation*)[view annotation];
+            Zone *zone = [[[(ADClusterAnnotation *) annotation cluster] annotation] annotation];
+            
+            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard"
+                                                                     bundle: nil];
+            
+            feelingDetailViewController *controller = (feelingDetailViewController*)[mainStoryboard
+                                                               instantiateViewControllerWithIdentifier: @"feelingDetail"];
+            controller.zoneId=zone.zoneId;
+            controller.zoneDict=zone.zoneDict;
+            [self.navigationController pushViewController:controller animated:YES];
+            
+            //Callout para Clusters
+        }else if([view.reuseIdentifier isEqualToString:@"ADMapCluster"]){
+            
+        }
+    }
     
 }
 
+-(void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
+    for (UIView *subview in mapView.subviews ){
+        /*if ([subview isKindOfClass:[CalloutView class]]) {
+            [subview removeFromSuperview];
+        }*/
+    }
+    for (UIView *subview in view.subviews) {
+        [subview removeFromSuperview];
+    }
+}
+-(IBAction)centerMapInUser{
+    [self.mapView setRegion:MKCoordinateRegionMake(self.mapView.userLocation.coordinate, MKCoordinateSpanMake(0.01, 0.01)) animated:YES];
+}
 #pragma mark - Lazy instantiation
 -(NSArray*)zonesArray{
     if(!_zonesArray) _zonesArray=[[NSArray alloc] init];

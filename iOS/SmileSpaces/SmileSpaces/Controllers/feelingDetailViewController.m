@@ -45,6 +45,9 @@
     
     //Setting currentAccuracy to initial Value
     self.currentAccuracy=16;
+    
+    //Downloading information of zone
+    [self getZoneInformation];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -112,11 +115,11 @@
         }
         
         chart.values=@[
-                       @[@"Cultural",[NSNumber numberWithFloat:10.0f]],
-                       @[@"Environ.",[NSNumber numberWithFloat:20.0f]],
-                       @[@"Opinion",[NSNumber numberWithFloat:30.0f]],
-                       @[@"Security",[NSNumber numberWithFloat:40.0f]],
-                       @[@"Services",[NSNumber numberWithFloat:50.0f]],
+                       @[@"Cultural",@([self.zoneDict[@"felixCultural"] intValue])],
+                       @[@"Environ.",@([self.zoneDict[@"felixEnvironment"] intValue])],
+                       @[@"Opinion",@([self.zoneDict[@"felixOpinion"] intValue])],
+                       @[@"Security",@([self.zoneDict[@"felixSecurity"] intValue])],
+                       @[@"Services",@([self.zoneDict[@"felixServices"] intValue])],
                        ];
         //Disable selection style
         graphCell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -130,15 +133,561 @@
         UIView *sectionColor=(UIView*)[cell viewWithTag:1];
         sectionColor.backgroundColor=self.sectionsColors[indexPath.section-1];
 
-        //Animated Progress
+        //Reset Progress
         animatedProgress *animated=(animatedProgress*)[cell viewWithTag:4];
         [animated setBackgroundColor:[UIColor colorWithRed:24.0f/255 green:41.0f/255 blue:54.0f/255 alpha:1.0]];
         [animated resetProgress];
-        [animated setPercentage:0.5 withAnimation:YES andDuration:0.2];
         
         //Disable selection style
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        /**
+         *	Assigning Values
+         */
+        UILabel *valueLabel=(UILabel*)[cell viewWithTag:3];
+        UILabel *titleLabel=(UILabel*)[cell viewWithTag:2];
 
+        //Museums
+        if(indexPath.section==1 && indexPath.row ==0){ //Museums
+            NSDictionary* museums;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"Museos"]){
+                    museums=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"Museums", nil);
+            if(museums){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[museums[@"value"] intValue]];
+                [animated setPercentage:[museums[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+               valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //Sport centers
+        if(indexPath.section==1 && indexPath.row ==1){ //Sports centers
+            NSDictionary* SportsCenters;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"SportsCenters"]){
+                    SportsCenters=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"SportsCenters", nil);
+            if(SportsCenters){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[SportsCenters[@"value"] intValue]];
+                [animated setPercentage:[SportsCenters[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //Bookshops
+        if(indexPath.section==1 && indexPath.row ==2){
+            NSDictionary* Bookshops;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"Librerias"]){
+                    Bookshops=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"Bookshops", nil);
+            if(Bookshops){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[Bookshops[@"value"] intValue]];
+                [animated setPercentage:[Bookshops[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //Theaters
+        if(indexPath.section==1 && indexPath.row ==3){
+            NSDictionary* Theaters;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"Teatros"]){
+                    Theaters=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"Theaters", nil);
+            if(Theaters){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[Theaters[@"value"] intValue]];
+                [animated setPercentage:[Theaters[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //TouristAttractions
+        if(indexPath.section==1 && indexPath.row ==4){
+            NSDictionary* TouristAttractions;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"TouristAttractions"]){
+                    TouristAttractions=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"TouristAttractions", nil);
+            if(TouristAttractions){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[TouristAttractions[@"value"] intValue]];
+                [animated setPercentage:[TouristAttractions[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //leisureAreas
+        if(indexPath.section==1 && indexPath.row ==5){
+            NSDictionary* leisureAreas;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"LocalesOcio"]){
+                    leisureAreas=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"leisureAreas", nil);
+            if(leisureAreas){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[leisureAreas[@"value"] intValue]];
+                [animated setPercentage:[leisureAreas[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //parks
+        if(indexPath.section==2 && indexPath.row ==0){
+            NSDictionary* parks;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"Parques"]){
+                    parks=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"parks", nil);
+            if(parks){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[parks[@"value"] intValue]];
+                [animated setPercentage:[parks[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //Gardens
+        if(indexPath.section==2 && indexPath.row ==1){
+            NSDictionary* gardens;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"Huertas"]){
+                    gardens=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"gardens", nil);
+            if(gardens){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[gardens[@"value"] intValue]];
+                [animated setPercentage:[gardens[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //Gardens
+        if(indexPath.section==2 && indexPath.row ==1){
+            NSDictionary* gardens;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"Huertas"]){
+                    gardens=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"gardens", nil);
+            if(gardens){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[gardens[@"value"] intValue]];
+                [animated setPercentage:[gardens[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //Ecological Footprint
+        if(indexPath.section==2 && indexPath.row ==2){
+            NSDictionary* ecologicalFootprint;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"HuellaEcologica"]){
+                    ecologicalFootprint=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"ecologicalFootprint", nil);
+            if(ecologicalFootprint){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[ecologicalFootprint[@"value"] intValue]];
+                [animated setPercentage:[ecologicalFootprint[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //CO2Emissions
+        if(indexPath.section==2 && indexPath.row ==3){
+            NSDictionary* CO2Emissions;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"CO2Emissions"]){
+                    CO2Emissions=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"CO2Emissions", nil);
+            if(CO2Emissions){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[CO2Emissions[@"value"] intValue]];
+                [animated setPercentage:[CO2Emissions[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //Noise
+        if(indexPath.section==2 && indexPath.row ==4){
+            NSDictionary* noise;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"ContaminacionRuido"]){
+                    noise=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"noise", nil);
+            if(noise){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[noise[@"value"] intValue]];
+                [animated setPercentage:[noise[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //Trees
+        if(indexPath.section==2 && indexPath.row ==5){
+            NSDictionary* Trees ;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"Arboles"]){
+                    Trees=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"Trees", nil);
+            if(Trees){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[Trees[@"value"] intValue]];
+                [animated setPercentage:[Trees[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //Noise
+        if(indexPath.section==2 && indexPath.row ==5){
+            NSDictionary* noise;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"ContaminacionRuido"]){
+                    noise=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"noise", nil);
+            if(noise){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[noise[@"value"] intValue]];
+                [animated setPercentage:[noise[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //HappySurveis
+        if(indexPath.section==3 && indexPath.row ==0){
+            NSDictionary* HappySurveis;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"HappySurveis"]){
+                    HappySurveis=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"HappySurveis", nil);
+            if(HappySurveis){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[HappySurveis[@"value"] intValue]];
+                [animated setPercentage:[HappySurveis[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+
+        //HappySurveis
+        if(indexPath.section==3 && indexPath.row ==0){
+            NSDictionary* HappySurveis;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"HappySurveis"]){
+                    HappySurveis=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"HappySurveis", nil);
+            if(HappySurveis){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[HappySurveis[@"value"] intValue]];
+                [animated setPercentage:[HappySurveis[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //Thefts
+        if(indexPath.section==4 && indexPath.row ==0){
+            NSDictionary* Thefts;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"Robos"]){
+                    Thefts=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"Thefts", nil);
+            if(Thefts){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[Thefts[@"value"] intValue]];
+                [animated setPercentage:[Thefts[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //Fires
+        if(indexPath.section==4 && indexPath.row ==1){
+            NSDictionary* Fires;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"Incencios"]){
+                    Fires=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"Fires", nil);
+            if(Fires){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[Fires[@"value"] intValue]];
+                [animated setPercentage:[Fires[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //Crime ratio
+        if(indexPath.section==4 && indexPath.row ==2){
+            NSDictionary* CrimeRatio;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"CrimeRatio"]){
+                    CrimeRatio=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"CrimeRatio", nil);
+            if(CrimeRatio){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[CrimeRatio[@"value"] intValue]];
+                [animated setPercentage:[CrimeRatio[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //Public toilets
+        if(indexPath.section==5 && indexPath.row ==0){
+            NSDictionary* PublicToilets;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"PublicToilets"]){
+                    PublicToilets=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"PublicToilets", nil);
+            if(PublicToilets){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[PublicToilets[@"value"] intValue]];
+                [animated setPercentage:[PublicToilets[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //Schools
+        if(indexPath.section==5 && indexPath.row ==1){
+            NSDictionary* schools;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"Schools"]){
+                    schools=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"schools", nil);
+            if(schools){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[schools[@"value"] intValue]];
+                [animated setPercentage:[schools[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //Suicide Rate
+        if(indexPath.section==5 && indexPath.row ==2){
+            NSDictionary* SuicideRate;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"SuicideRate"]){
+                    SuicideRate=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"schools", nil);
+            if(SuicideRate){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[SuicideRate[@"value"] intValue]];
+                [animated setPercentage:[SuicideRate[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //Hospitals
+        if(indexPath.section==5 && indexPath.row ==3){
+            NSDictionary* Hospitals;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"Hospitales"]){
+                    Hospitals=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"Hospitals", nil);
+            if(Hospitals){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[Hospitals[@"value"] intValue]];
+                [animated setPercentage:[Hospitals[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //Health Centers
+        if(indexPath.section==5 && indexPath.row ==4){
+            NSDictionary* HealthCenters;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"HealthCenters"]){
+                    HealthCenters=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"HealthCenters", nil);
+            if(HealthCenters){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[HealthCenters[@"value"] intValue]];
+                [animated setPercentage:[HealthCenters[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        
+        //Educative Centers
+        if(indexPath.section==5 && indexPath.row ==5){
+            NSDictionary* EducativeCenters;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"CentrosEducativos"]){
+                    EducativeCenters=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"EducativeCenters", nil);
+            if(EducativeCenters){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[EducativeCenters[@"value"] intValue]];
+                [animated setPercentage:[EducativeCenters[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //Educative Centers
+        if(indexPath.section==5 && indexPath.row ==5){
+            NSDictionary* EducativeCenters;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"CentrosEducativos"]){
+                    EducativeCenters=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"EducativeCenters", nil);
+            if(EducativeCenters){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[EducativeCenters[@"value"] intValue]];
+                [animated setPercentage:[EducativeCenters[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
+        //Railway Station
+        if(indexPath.section==5 && indexPath.row ==6){
+            NSDictionary* RailwayStation;
+            for(NSDictionary *dict in self.zoneParameters){
+                if([dict[@"dataType"] isEqualToString:@"RailwayStation"]){
+                    RailwayStation=dict;
+                    break;
+                }
+            }
+            titleLabel.text=NSLocalizedString(@"EducativeCenters", nil);
+            if(RailwayStation){
+                valueLabel.text=[NSString stringWithFormat:@"%d%%",[RailwayStation[@"value"] intValue]];
+                [animated setPercentage:[RailwayStation[@"value"] floatValue]/100 withAnimation:YES andDuration:0.1];
+                return cell;
+            }else{
+                valueLabel.text=@"";
+                return cell;
+            }
+        }
+        
         return cell;
     }
 }
@@ -196,5 +745,26 @@
                           ];
     return _sectionsColors;
 }
+#pragma mark - ACtions
+-(void)getZoneInformation{
+    AFHTTPClient *client=[[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://trobi.me/"]];
+    [client getPath:[NSString stringWithFormat:@"api/1/Data/%@",self.zoneId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Zones: %@",operation.responseString);
+        @try{
+            self.zoneParameters=[NSJSONSerialization JSONObjectWithData:operation.responseData options:kNilOptions error:nil][@"results"];
+            [self.tableView reloadData];
+        }
+        @catch (NSException *e) {
+            
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
 
+}
+#pragma mark - Lazy instantiation
+-(NSArray*)zoneParameters{
+    if(!_zoneParameters)_zoneParameters=@[]; return _zoneParameters;
+}
 @end

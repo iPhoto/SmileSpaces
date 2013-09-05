@@ -10,5 +10,7 @@
 #import "FlatUIKit.h"
 
 @interface feelingDetailViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
-
+@property (nonatomic,strong ) NSString *zoneId;
+@property (nonatomic,strong) NSDictionary *zoneDict;
+@property (nonatomic,strong) NSArray *zoneParameters;
 @end

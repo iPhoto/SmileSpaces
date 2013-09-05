@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "PPiFlatSegmentedControl.h"
-@interface MainViewController : UIViewController<MKMapViewDelegate>
+#import <ADClusterMapView.h>
+#import "ADClusterAnnotation.h"
 
+@interface MainViewController : UIViewController<ADClusterMapViewDelegate>
+-(IBAction)centerMapInUser;
 @end
