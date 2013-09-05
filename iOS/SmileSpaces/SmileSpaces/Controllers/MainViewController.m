@@ -8,11 +8,11 @@
 
 #import "MainViewController.h"
 #import "UIButton+PPiAwesome.h"
-
 #define mapSpan 0.005
 @interface MainViewController ()
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIButton *locationButton, *infoButton, *feelButton;
+@property (nonatomic, strong) NSArray *zonesArray;
 @end
 
 @implementation MainViewController
@@ -39,6 +39,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //Set the navigation bar hidden
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 -(void)initializeAll{
@@ -86,12 +95,22 @@
     //Map
     [self.mapView setShowsUserLocation:YES];
     self.mapView.delegate = self;
+    
+    //Customizing navigation Bar
+    [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor midnightBlueColor]];
 
     
 }
 #pragma mark - Actions
 -(IBAction)addFeeling:(id)sender{
-    [self performSegueWithIdentifier:@"addFeeling" sender:self];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard"
+                                                             bundle: nil];
+    
+    UIViewController *controller = (UIViewController*)[mainStoryboard
+                                                       instantiateViewControllerWithIdentifier: @"feelingDetail"];
+    [self.navigationController pushViewController:controller animated:YES];
+
+    
 }
 -(IBAction)centerUserMap:(id)sender{
     [self mapView:self.mapView didUpdateUserLocation:self.mapView.userLocation];
@@ -109,5 +128,16 @@
     region.span = span;
     region.center = location;
     [aMapView setRegion:region animated:YES];
+}
+
+#pragma mark - Server
+-(void)downloadZones{
+    
+}
+
+#pragma mark - Lazy instantiation
+-(NSArray*)zonesArray{
+    if(!_zonesArray) _zonesArray=[[NSArray alloc] init];
+    return _zonesArray;
 }
 @end

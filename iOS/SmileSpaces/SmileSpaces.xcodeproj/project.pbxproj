@@ -16,6 +16,20 @@
 		3D69C37817D7A186009A780B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69C37717D7A186009A780B /* SystemConfiguration.framework */; };
 		3D69C37A17D7A1A8009A780B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69C37917D7A1A8009A780B /* MobileCoreServices.framework */; };
 		3D69C37D17D7E4BB009A780B /* addFeelingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C37C17D7E4BB009A780B /* addFeelingViewController.m */; };
+		3D69C38217D7EED0009A780B /* ILColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C38117D7EED0009A780B /* ILColorPickerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3D69C38B17D7EF03009A780B /* ILHuePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C38417D7EF02009A780B /* ILHuePickerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3D69C38C17D7EF03009A780B /* ILSaturationBrightnessPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C38617D7EF03009A780B /* ILSaturationBrightnessPickerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3D69C38D17D7EF03009A780B /* ILView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C38817D7EF03009A780B /* ILView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3D69C38E17D7EF03009A780B /* UIColor+GetHSB.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C38A17D7EF03009A780B /* UIColor+GetHSB.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3D69C39617D8224C009A780B /* facebook-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D69C39117D8224C009A780B /* facebook-icon.png */; };
+		3D69C39717D8224C009A780B /* github-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D69C39217D8224C009A780B /* github-icon.png */; };
+		3D69C39817D8224C009A780B /* instagram-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D69C39317D8224C009A780B /* instagram-icon.png */; };
+		3D69C39917D8224C009A780B /* linkedin-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D69C39417D8224C009A780B /* linkedin-icon.png */; };
+		3D69C39A17D8224C009A780B /* path-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D69C39517D8224C009A780B /* path-icon.png */; };
+		3D69C39C17D8230A009A780B /* twitter-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D69C39B17D8230A009A780B /* twitter-icon.png */; };
+		3D69C3BA17D8B1E7009A780B /* RPRadarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C3B817D8B1E7009A780B /* RPRadarChart.m */; };
+		3D69C3BB17D8B1E7009A780B /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 3D69C3B917D8B1E7009A780B /* README.mdown */; };
+		3D69C3BF17D8E2B5009A780B /* animatedProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C3BE17D8E2B5009A780B /* animatedProgress.m */; };
 		3D986AE617D64DF1004ADCB1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D986AE517D64DF1004ADCB1 /* UIKit.framework */; };
 		3D986AE817D64DF1004ADCB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D986AE717D64DF1004ADCB1 /* Foundation.framework */; };
 		3D986AEA17D64DF1004ADCB1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D986AE917D64DF1004ADCB1 /* CoreGraphics.framework */; };
@@ -42,6 +56,27 @@
 		3D69C37917D7A1A8009A780B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		3D69C37B17D7E4BB009A780B /* addFeelingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = addFeelingViewController.h; path = Controllers/addFeelingViewController.h; sourceTree = "<group>"; };
 		3D69C37C17D7E4BB009A780B /* addFeelingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = addFeelingViewController.m; path = Controllers/addFeelingViewController.m; sourceTree = "<group>"; };
+		3D69C38017D7EED0009A780B /* ILColorPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILColorPickerView.h; sourceTree = "<group>"; };
+		3D69C38117D7EED0009A780B /* ILColorPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILColorPickerView.m; sourceTree = "<group>"; };
+		3D69C38317D7EF02009A780B /* ILHuePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILHuePickerView.h; sourceTree = "<group>"; };
+		3D69C38417D7EF02009A780B /* ILHuePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILHuePickerView.m; sourceTree = "<group>"; };
+		3D69C38517D7EF03009A780B /* ILSaturationBrightnessPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILSaturationBrightnessPickerView.h; sourceTree = "<group>"; };
+		3D69C38617D7EF03009A780B /* ILSaturationBrightnessPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILSaturationBrightnessPickerView.m; sourceTree = "<group>"; };
+		3D69C38717D7EF03009A780B /* ILView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILView.h; sourceTree = "<group>"; };
+		3D69C38817D7EF03009A780B /* ILView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILView.m; sourceTree = "<group>"; };
+		3D69C38917D7EF03009A780B /* UIColor+GetHSB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GetHSB.h"; sourceTree = "<group>"; };
+		3D69C38A17D7EF03009A780B /* UIColor+GetHSB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GetHSB.m"; sourceTree = "<group>"; };
+		3D69C39117D8224C009A780B /* facebook-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-icon.png"; sourceTree = "<group>"; };
+		3D69C39217D8224C009A780B /* github-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "github-icon.png"; sourceTree = "<group>"; };
+		3D69C39317D8224C009A780B /* instagram-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instagram-icon.png"; sourceTree = "<group>"; };
+		3D69C39417D8224C009A780B /* linkedin-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linkedin-icon.png"; sourceTree = "<group>"; };
+		3D69C39517D8224C009A780B /* path-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "path-icon.png"; sourceTree = "<group>"; };
+		3D69C39B17D8230A009A780B /* twitter-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-icon.png"; sourceTree = "<group>"; };
+		3D69C3B717D8B1E7009A780B /* RPRadarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPRadarChart.h; sourceTree = "<group>"; };
+		3D69C3B817D8B1E7009A780B /* RPRadarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPRadarChart.m; sourceTree = "<group>"; };
+		3D69C3B917D8B1E7009A780B /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.mdown; sourceTree = "<group>"; };
+		3D69C3BD17D8E2B5009A780B /* animatedProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = animatedProgress.h; path = Controls/animatedProgress.h; sourceTree = "<group>"; };
+		3D69C3BE17D8E2B5009A780B /* animatedProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = animatedProgress.m; path = Controls/animatedProgress.m; sourceTree = "<group>"; };
 		3D986AE217D64DF1004ADCB1 /* SmileSpaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmileSpaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D986AE517D64DF1004ADCB1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3D986AE717D64DF1004ADCB1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -65,14 +100,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D69C37017D689F0009A780B /* QuartzCore.framework in Frameworks */,
+				3D986AEA17D64DF1004ADCB1 /* CoreGraphics.framework in Frameworks */,
 				3D69C37A17D7A1A8009A780B /* MobileCoreServices.framework in Frameworks */,
 				3D69C37817D7A186009A780B /* SystemConfiguration.framework in Frameworks */,
-				3D69C37017D689F0009A780B /* QuartzCore.framework in Frameworks */,
 				3D69C36E17D66127009A780B /* CoreLocation.framework in Frameworks */,
 				3D69C36C17D66122009A780B /* MapKit.framework in Frameworks */,
 				3D986AE617D64DF1004ADCB1 /* UIKit.framework in Frameworks */,
 				3D986AE817D64DF1004ADCB1 /* Foundation.framework in Frameworks */,
-				3D986AEA17D64DF1004ADCB1 /* CoreGraphics.framework in Frameworks */,
 				49EA4A8AAFF44852AD0C37EE /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,11 +126,83 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		3D69C37E17D7EED0009A780B /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				3D69C3B517D8B1E7009A780B /* RPRadarChart */,
+				3D69C37F17D7EED0009A780B /* Color Picker */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		3D69C37F17D7EED0009A780B /* Color Picker */ = {
+			isa = PBXGroup;
+			children = (
+				3D69C38317D7EF02009A780B /* ILHuePickerView.h */,
+				3D69C38417D7EF02009A780B /* ILHuePickerView.m */,
+				3D69C38517D7EF03009A780B /* ILSaturationBrightnessPickerView.h */,
+				3D69C38617D7EF03009A780B /* ILSaturationBrightnessPickerView.m */,
+				3D69C38717D7EF03009A780B /* ILView.h */,
+				3D69C38817D7EF03009A780B /* ILView.m */,
+				3D69C38917D7EF03009A780B /* UIColor+GetHSB.h */,
+				3D69C38A17D7EF03009A780B /* UIColor+GetHSB.m */,
+				3D69C38017D7EED0009A780B /* ILColorPickerView.h */,
+				3D69C38117D7EED0009A780B /* ILColorPickerView.m */,
+			);
+			path = "Color Picker";
+			sourceTree = "<group>";
+		};
+		3D69C38F17D8224C009A780B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3D69C39017D8224C009A780B /* Icons */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3D69C39017D8224C009A780B /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				3D69C39B17D8230A009A780B /* twitter-icon.png */,
+				3D69C39117D8224C009A780B /* facebook-icon.png */,
+				3D69C39217D8224C009A780B /* github-icon.png */,
+				3D69C39317D8224C009A780B /* instagram-icon.png */,
+				3D69C39417D8224C009A780B /* linkedin-icon.png */,
+				3D69C39517D8224C009A780B /* path-icon.png */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
+		3D69C3B517D8B1E7009A780B /* RPRadarChart */ = {
+			isa = PBXGroup;
+			children = (
+				3D69C3B617D8B1E7009A780B /* RadarChart */,
+				3D69C3B917D8B1E7009A780B /* README.mdown */,
+			);
+			path = RPRadarChart;
+			sourceTree = "<group>";
+		};
+		3D69C3B617D8B1E7009A780B /* RadarChart */ = {
+			isa = PBXGroup;
+			children = (
+				3D69C3B717D8B1E7009A780B /* RPRadarChart.h */,
+				3D69C3B817D8B1E7009A780B /* RPRadarChart.m */,
+			);
+			path = RadarChart;
+			sourceTree = "<group>";
+		};
+		3D69C3BC17D8E25C009A780B /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				3D69C3BD17D8E2B5009A780B /* animatedProgress.h */,
+				3D69C3BE17D8E2B5009A780B /* animatedProgress.m */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
 		3D986AD917D64DF1004ADCB1 = {
 			isa = PBXGroup;
 			children = (
-				3D69C37917D7A1A8009A780B /* MobileCoreServices.framework */,
-				3D69C37717D7A186009A780B /* SystemConfiguration.framework */,
 				3D986AEB17D64DF1004ADCB1 /* SmileSpaces */,
 				3D986AE417D64DF1004ADCB1 /* Frameworks */,
 				3D986AE317D64DF1004ADCB1 /* Products */,
@@ -114,6 +221,8 @@
 		3D986AE417D64DF1004ADCB1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D69C37917D7A1A8009A780B /* MobileCoreServices.framework */,
+				3D69C37717D7A186009A780B /* SystemConfiguration.framework */,
 				3D69C36F17D689F0009A780B /* QuartzCore.framework */,
 				3D69C36D17D66127009A780B /* CoreLocation.framework */,
 				3D69C36B17D66122009A780B /* MapKit.framework */,
@@ -128,6 +237,9 @@
 		3D986AEB17D64DF1004ADCB1 /* SmileSpaces */ = {
 			isa = PBXGroup;
 			children = (
+				3D69C3BC17D8E25C009A780B /* Controls */,
+				3D69C38F17D8224C009A780B /* Resources */,
+				3D69C37E17D7EED0009A780B /* Libraries */,
 				3D69C37117D68B67009A780B /* Controllers */,
 				3D986AF417D64DF1004ADCB1 /* AppDelegate.h */,
 				3D986AF517D64DF1004ADCB1 /* AppDelegate.m */,
@@ -213,6 +325,13 @@
 				3D986AFC17D64DF1004ADCB1 /* Default-568h@2x.png in Resources */,
 				3D986AFF17D64DF1004ADCB1 /* MainStoryboard.storyboard in Resources */,
 				3D69C37617D68E87009A780B /* Localizable.strings in Resources */,
+				3D69C39617D8224C009A780B /* facebook-icon.png in Resources */,
+				3D69C39717D8224C009A780B /* github-icon.png in Resources */,
+				3D69C39817D8224C009A780B /* instagram-icon.png in Resources */,
+				3D69C39917D8224C009A780B /* linkedin-icon.png in Resources */,
+				3D69C39A17D8224C009A780B /* path-icon.png in Resources */,
+				3D69C39C17D8230A009A780B /* twitter-icon.png in Resources */,
+				3D69C3BB17D8B1E7009A780B /* README.mdown in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +380,13 @@
 				3D69C36A17D65E00009A780B /* MainViewController.m in Sources */,
 				3D69C37417D68BFE009A780B /* feelingDetailViewController.m in Sources */,
 				3D69C37D17D7E4BB009A780B /* addFeelingViewController.m in Sources */,
+				3D69C38217D7EED0009A780B /* ILColorPickerView.m in Sources */,
+				3D69C38B17D7EF03009A780B /* ILHuePickerView.m in Sources */,
+				3D69C38C17D7EF03009A780B /* ILSaturationBrightnessPickerView.m in Sources */,
+				3D69C38D17D7EF03009A780B /* ILView.m in Sources */,
+				3D69C38E17D7EF03009A780B /* UIColor+GetHSB.m in Sources */,
+				3D69C3BA17D8B1E7009A780B /* RPRadarChart.m in Sources */,
+				3D69C3BF17D8E2B5009A780B /* animatedProgress.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
