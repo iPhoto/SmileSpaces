@@ -66,12 +66,14 @@ pod 'APParallaxHeader'
 
 
 ## Team
-- **Isaac Roldán**: Web/Backend developer and Felix's father
 ![image](http://imageshack.us/a/img22/4400/69bw.png)
+![image](http://imageshack.us/a/img546/7083/adv1.png)
+
+- **Isaac Roldán**: Web/Backend developer and Felix's father
 - **Fran Díaz**: GodFather of Felix and 
 - **LLorens Delgado**: Android Developer
 - **Pedro Piñera**: iOS Developer
-![image](http://imageshack.us/a/img546/7083/adv1.png)
+
 
 
 ![image](http://www.pbh2.com/wordpress/wp-content/uploads/2013/05/cutest-cat-gifs-please.gif)
