@@ -1,0 +1,45 @@
+/* 
+  Localizable.strings
+  SmileSpaces
+
+  Created by Pedro Piñera Buendía on 03/09/13.
+  Copyright (c) 2013 Trobi. All rights reserved.
+*/
+"Feeling"="Feeling";
+"addFeeling"="Add Feeling";
+"colorMood"="Color your mood";
+"addPhoto"="Add a photo";
+"SizeYourFeeling"="Size your feelings";
+"SocialAnalysis"="Social Analysis";
+"Security"="Security";
+"zoneDetail"="Zone Detail";
+"Cultural&Sports"="Cultural & Sports";
+"Environment"="Environment";
+"Opinion"="Opinion";
+"Services&Health"="Services & Health";
+"Museums"="Museums";
+"SportsCenters"="Sports centers";
+"Bookshops"="Bookshops";
+"TouristAttractions"="Tourist attractions";
+"leisureAreas"="Leisure Areas";
+"parks"="Parks";
+"gardens"="Gardens";
+"ecologicalFootprint"="Ecological Footprint";
+"CO2Emissions"="CO2 Emissions";
+"noise"="Noise";
+"Trees"="Trees";
+"HappySurveis"="Happy Surveis";
+"Thefts"="Thefts";
+"Fires"="Fires";
+"CrimeRatio"="Crime Ratio";
+"PublicToilets"="Public Toilets";
+"schools"="Schools";
+"SuicideRate"="Suicide Rate";
+"Hospitals"="Hospitals";
+"HealthCenters"="Health Centers";
+"EducativeCenters"="Educative Centers";
+"RailwayStation"="Railway Station";
+"Loading"="Loading";
+"getCloserMap"="Get closer to the map";
+"Back"="Back";
+"SendFeeling"="Send Feeling";

@@ -1,0 +1,77 @@
+RP Radar Chart
+===============
+
+This is a simple library for plotting Radar Charts (or Spider Web Charts) in
+iOS. 
+
+Examples (Using random values):
+
+<img src="http://raspu.com/b/RPRadarA1.png" alt="RPRadarChart" title="RPRadarChart Example" style="display:block; margin: 10px auto 30px auto;" class="center">
+<img src="http://raspu.com/b/RPRadarB2.png" alt="RPRadarChart" title="RPRadarChart Example" style="display:block; margin: 10px auto 30px auto;" class="center">
+
+WARNING
+-------
+
+This library is under development, actually is part of an App I'm developing at work, so don't expect it to be finished. I know the code is messy, sorry about that (I'll try to beautify it in the future). Anyway, even if isn't finished you already can:
+  
+  -  Plot one or more set of floats.
+  -  Set a different color for each set.
+  -  Customize how is the chart displayed:
+    - Line width
+    - Dots radius
+    - Show or not values.
+    - Show or not guide lines.
+    - Show or not guide numbers.
+    - Fill or not the drawed area.
+
+Planned features:
+
+ - Addjust values positions if needed. 
+ - Add a Legend for each data set.
+ - Animate a transitions from one data set to another.  
+
+Use
+---
+
+Just add RPRadarChart.h and RPRadarChart.m to your project. You can plot something with this few lines:
+
+```
+RPRadarChart *rc = [[RPRadarChart alloc] initWithFrame:CGRectMake(0, 100, 320, 320)];
+rc.values = [NSDictionary dictionaryWithObjectsAndKeys:
+                   [NSNumber numberWithFloat:10.0f],@"A",
+                   [NSNumber numberWithFloat:20.0f],@"B",
+                   [NSNumber numberWithFloat:30.0f],@"C",
+                   [NSNumber numberWithFloat:40.0f],@"D",
+                   [NSNumber numberWithFloat:50.0f],@"E",
+                   [NSNumber numberWithFloat:60.0f],@"F",
+                   [NSNumber numberWithFloat:70.0f],@"F",
+                   [NSNumber numberWithFloat:80.0f],@"G",
+                   nil]];
+[self.view addSubview:rc];
+```
+
+
+
+Licensing
+---------
+
+RPRadarChart is licensed under MIT License
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/d2594437a14467cea1e631159189becb "githalytics.com")](http://githalytics.com/raspu/RPRadarChart)
