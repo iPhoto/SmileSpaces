@@ -8,9 +8,31 @@ SmileSpaces is a interesting platform to find the best happy areas in your city 
 
 # Web Server Backend
 We've developed our platform using a know micro-framework web base on Python, **Flask**. The reason why chose it is that it's very fast, easy to implement and powerful.
-Although Flask has a Web Server for testing it's not recommended using it out of developing, that's the reason why we've complemented it with NGINX+GUNICORN. 
+Although Flask has a Web Server for testing it's not recommended using it out of developing, that's the reason why we've complemented it with NGINX+GUNICORN. SQLite database is the chosen solution for our initial project.
 
-If you w
+If you want to test it you don't need this configuration. Only download the project and executing:
+```python
+python runSmile.py
+```
+#### Requiremens
+- Python 2.7
+- Flask
+- Flask-SQLAlchemy
+- Flask-Admin
+
+( You can install all of them using PIP command )
+
+### API Requests
+File views.py includes all web paths that our API is able to process. Here you have a list of them:
+- **/api/1/City**: To get a list of all the cities ( POST, PUT, GET, DELETE )
+- **/api/1/City/<cityID>**: To get all zones of the city ( GET, POST, PUT, DELETE )
+- **/api/1/Data/<cellID>**: To get detailed information of a cell ( POST, PUT, GET, DELETE )
+
+*Note: Some REST request may not be implemented. We're working on these features*
+
+### Admin view
+Thanks to Flask-Admin you'll have access to an Admin panel and take control over the backend data. The URL to access it is: http://127.0.0.1:5000/admin
+
 
 # iOS Application
 iOS application as a location mobile service has a main View with the map of the city ( depending on the version of the App ). In this view you'll be able to have a global sightseing of every zone with a smile/color indicating the happiness of zone. From this view you'll be able to open more details of the zone ( touching in the zone pin ) or share your feeling in the place where you are.
@@ -80,7 +102,7 @@ Sources from London:
 ![image](http://imageshack.us/a/img22/4400/69bw.png)
 ![image](http://img545.imageshack.us/img545/4845/7ifz.png)
 ![image](http://imageshack.us/a/img546/7083/adv1.png)
-
+![image](http://img707.imageshack.us/img707/5892/0m6i.png)
 
 - **Isaac Roldán**: Web/Backend developer and Felix's father
 - **Fran Díaz**: GodFather of Felix and 
