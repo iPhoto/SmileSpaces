@@ -1,6 +1,6 @@
 SmileSpaces Platform
 ===========
-![image](http://img27.imageshack.us/img27/8845/bukb.png)
+![image](http://img198.imageshack.us/img198/5672/lzht.png)
 
 SmileSpaces is a interesting platform to find the best happy areas in your city according to many factors, curltural, healthy, users... Thanks to our advanced algorith "Felix" and exhaustive data analysis. Moreover you'll have a full API REST for implementing your own solution with our data. In our repo you'll find iOS and Android applications to have an idea of what you can do :)
 
