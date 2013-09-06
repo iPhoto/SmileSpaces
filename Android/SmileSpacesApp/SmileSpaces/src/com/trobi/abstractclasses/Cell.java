@@ -4,6 +4,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Intent;
+
 import com.google.android.gms.maps.model.LatLng;
 
 public class Cell {
@@ -21,7 +23,7 @@ public class Cell {
 	public int museums = 0;
 	public int sportsCenters = 0;
 	public int bookShops = 0;
-	public int theaters = 0;
+	public int theatres = 0;
 	public int touristAttractions = 0;
 	public int leisureAreas = 0;
 	public int parks = 0;
@@ -63,7 +65,7 @@ public class Cell {
 			}else if(cellValue.getString("dataType").equals("Librerias")){
 				bookShops = cellValue.getInt("value");
 			}else if(cellValue.getString("dataType").equals("Teatros")){
-				theaters = cellValue.getInt("value");
+				theatres = cellValue.getInt("value");
 			}else if(cellValue.getString("dataType").equals("TouristAttractions")){
 				touristAttractions = cellValue.getInt("value");
 			}else if(cellValue.getString("dataType").equals("LocalesOcio")){
@@ -113,5 +115,14 @@ public class Cell {
 		felixOpinion = cellFelixValuesJSONResponse.getInt("felixOpinion");
 		felixSecurity = cellFelixValuesJSONResponse.getInt("felixSecurity");
 		felixServices = cellFelixValuesJSONResponse.getInt("felixServices");
-	}	
+	}
+	
+	public void parseFelixParameters(Intent intent) {
+		smileValue = intent.getExtras().getInt("smileValue");
+		felixCultural = intent.getExtras().getInt("felixCultural");
+		felixEnvironment = intent.getExtras().getInt("felixEnvironment");
+		felixOpinion = intent.getExtras().getInt("felixOpinion");
+		felixSecurity = intent.getExtras().getInt("felixSecurity");
+		felixServices = intent.getExtras().getInt("felixServices");
+	}
 }
