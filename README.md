@@ -7,10 +7,10 @@ SmileSpaces is a interesting platform to find the best happy areas in your city 
 :smile: Share happiness! :smile:
 
 # Web Server Backend
-We've developed our platform using a know micro-framework web base on Python, **Flask**. The reason why chose it is that it's very fast, easy to implement and powerful.
-Although Flask has a Web Server for testing it's not recommended using it out of developing, that's the reason why we've complemented it with NGINX+GUNICORN. SQLite database is the chosen solution for our initial project.
+We've developed our platform using a python based micro-framework, **Flask**. The reason why we did chose it is that it's very fast, easy to implement and powerful.
+Although Flask has a Web Server for testing it's not recommended using it out of developing, that's the reason why we've deployed our server using NGINX+GUNICORN. SQLite database is the chosen solution for our initial project.
 
-If you want to test it you don't need this configuration. Only download the project and executing:
+If you want to test it you don't need this configuration. Only download the serverSmile project and execute:
 ```python
 python runSmile.py
 ```
@@ -24,11 +24,22 @@ python runSmile.py
 
 ### API Requests
 File views.py includes all web paths that our API is able to process. Here you have a list of them:
-- **/api/1/City**: To get a list of all the cities ( POST, PUT, GET, DELETE )
-- **/api/1/City/<cityID>**: To get all zones of the city ( GET, POST, PUT, DELETE )
-- **/api/1/Data/<cellID>**: To get detailed information of a cell ( POST, PUT, GET, DELETE )
+- **/api/1/City**: [GET] To get a list of all the cities
+- **/api/1/City/"cityID"**: [GET] To get the information of a given city (by ID)
+- **/api/1/City/"cityID"**: [PUT] Update the information of a given city (by ID)
+- **/api/1/City**: [POST] Create a new City
+- **/api/1/City/"cityID"**: [DELETE] Delete an existing City
+- **/api/1/Cell/City/"cityID"**: [GET] Get a list of all the zones of a City
+- **/api/1/Cell/"cellID"**: [GET] Get detailed info for given cell (by ID)
+- **/api/1/Cell/"cellID"**: [PUT] Update the information of a given Cell (By ID)
+- **/api/1/Cell**: [POST] Create a new zone
+- **/api/1/Cell/"cellID"**: [DELETE] Delete a given zone
+- **/api/1/Data/"cellID"**: [GET] Get detailed parameters info of a Cell
+- **/api/1/Data**: [POST] Create a new data object
+- **/api/1/Data/"dataID"**: [PUT] Update an existing data object
+- **/api/1/Data/"dataID"**: [DELETE] Delete an existing data object
 
-*Note: Some REST request may not be implemented. We're working on these features*
+*Note: Some REST request may not be implemented. We're working on these features. Some of them may not be working correctly, sorry for the inconvenience, we are on Alpha :)*
 
 ### Admin view
 Thanks to Flask-Admin you'll have access to an Admin panel and take control over the backend data. The URL to access it is: http://127.0.0.1:5000/admin
