@@ -117,6 +117,6 @@ Sources from London:
 
 
 - **Isaac Roldán**: Web/Backend developer and Felix's father
-- **Fran Díaz**: GodFather of Felix and 
-- **LLorens Delgado**: Android Developer
-- **Pedro Piñera**: iOS Developer
+- **Fran Díaz**: GodFather of Felix and Social Developer
+- **LLorens Delgado**: Android Developer and UI/UX designer
+- **Pedro Piñera**: iOS Developer and UI/UX designer
