@@ -6,6 +6,8 @@ SmileSpaces is a interesting platform to find the best happy areas in your city 
 
 :smile: Share happiness! :smile:
 
+Take a look to our VideoLean promo video: https://videolean.com/shares/4eb1f2f3-5ed3-4ce0-9057-edbec56d9a5b
+
 # Web Server Backend
 We've developed our platform using a python based micro-framework, **Flask**. The reason why we did chose it is that it's very fast, easy to implement and powerful.
 Although Flask has a Web Server for testing it's not recommended using it out of developing, that's the reason why we've deployed our server using NGINX+GUNICORN. SQLite database is the chosen solution for our initial project.
