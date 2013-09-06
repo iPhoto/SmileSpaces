@@ -65,9 +65,18 @@ pod 'APParallaxHeader'
 ## Android Backend
 
 
+## Source
+We've found all these London Feeds to our dababase Backend. The solution is global so in the future is required to adapt this platform to another city we only have to link our system with the new city sources.
+Sources from London:
+- Transport for London: http://www.tfl.gov.uk
+- LondonAir API
+-
+
+
 ## Team
 ![image](http://imageshack.us/a/img22/4400/69bw.png)
 ![image](http://imageshack.us/a/img546/7083/adv1.png)
+![image](http://img545.imageshack.us/img545/4845/7ifz.png)
 
 - **Isaac Roldán**: Web/Backend developer and Felix's father
 - **Fran Díaz**: GodFather of Felix and 
