@@ -70,7 +70,6 @@ We've found all these London Feeds to our dababase Backend. The solution is glob
 Sources from London:
 - Transport for London: http://www.tfl.gov.uk
 - LondonAir API
--
 
 
 ## Team
