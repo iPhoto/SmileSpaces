@@ -99,9 +99,21 @@ pod 'APParallaxHeader'
 - Active notifications
 - Gamification in users profiles 
 
-## Android Backend
+## Android
+In the same way as iOS App, the Android app has a similar structure in Controllers ( Including the design ). The project works in Android version from  2.3 Gingerbread until the last version.
 
+## Test on your own
+- Download the project folder
+- Open Eclipse ( If you hadn't it installed remember Android Development Kit is required too )
+- Once installed, import the project into your Workspace and import Google Play Services Library
+- If everything goes right, you should be able to load the project into a physical device or the simulator
 
+## Screenshots
+![image](http://imageshack.us/a/img856/4658/1a9d.png)
+ ![image](http://img43.imageshack.us/img43/1778/5r6c.png)
+
+## External controls
+- **Asynchronous Http Client for Android**: An asynchronous callback-based HTTP client for Android used by Instagram, Heyzap, Trello and many other large apps. https://github.com/loopj/android-async-http
 ## Source
 We've found all these London Feeds to our dababase Backend. The solution is global so in the future is required to adapt this platform to another city we only have to link our system with the new city sources.
 Sources from London:
