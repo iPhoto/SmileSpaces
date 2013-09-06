@@ -114,6 +114,7 @@ In the same way as iOS App, the Android app has a similar structure in Controlle
 
 ## External controls
 - **Asynchronous Http Client for Android**: An asynchronous callback-based HTTP client for Android used by Instagram, Heyzap, Trello and many other large apps. https://github.com/loopj/android-async-http
+
 ## Source
 We've found all these London Feeds to our dababase Backend. The solution is global so in the future is required to adapt this platform to another city we only have to link our system with the new city sources.
 Sources from London:
