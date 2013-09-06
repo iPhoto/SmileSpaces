@@ -1,71 +1,162 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Smilespaces by pepibumur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <title>Smilespaces by pepibumur</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
+    <header>
+      <div class="inner">
         <h1>Smilespaces</h1>
-        <p>SmileSpaces hack for something better repo</p>
+        <h2>SmileSpaces hack for something better repo</h2>
+        <a href="https://github.com/pepibumur/SmileSpaces" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
 
-        <p class="view"><a href="https://github.com/pepibumur/SmileSpaces">View the Project on GitHub <small>pepibumur/SmileSpaces</small></a></p>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="smilespaces-platform" class="anchor" href="#smilespaces-platform"><span class="octicon octicon-link"></span></a>SmileSpaces Platform</h1>
 
+<p><img src="http://img27.imageshack.us/img27/8845/bukb.png" alt="image"></p>
 
-        <ul>
-          <li><a href="https://github.com/pepibumur/SmileSpaces/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/pepibumur/SmileSpaces/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/pepibumur/SmileSpaces">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<p>SmileSpaces is a interesting platform to find the best happy areas in your city according to many factors, curltural, healthy, users... Thanks to our advanced algorith "Felix" and exhaustive data analysis. Moreover you'll have a full API REST for implementing your own solution with our data. In our repo you'll find iOS and Android applications to have an idea of what you can do :)</p>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p><img class="emoji" title=":smile:" alt=":smile:" src="https://github.global.ssl.fastly.net/images/icons/emoji/smile.png" height="20" width="20" align="absmiddle"> Share happiness! <img class="emoji" title=":smile:" alt=":smile:" src="https://github.global.ssl.fastly.net/images/icons/emoji/smile.png" height="20" width="20" align="absmiddle"></p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<h1>
+<a name="web-server-backend" class="anchor" href="#web-server-backend"><span class="octicon octicon-link"></span></a>Web Server Backend</h1>
+
+<h1>
+<a name="ios-application" class="anchor" href="#ios-application"><span class="octicon octicon-link"></span></a>iOS Application</h1>
+
+<p>iOS application as a location mobile service has a main View with the map of the city ( depending on the version of the App ). In this view you'll be able to have a global sightseing of every zone with a smile/color indicating the happiness of zone. From this view you'll be able to open more details of the zone ( touching in the zone pin ) or share your feeling in the place where you are.</p>
+
+<p><img src="http://img22.imageshack.us/img22/6086/j2so.png" alt="image"></p>
+
+<h4>
+<a name="implemented-features" class="anchor" href="#implemented-features"><span class="octicon octicon-link"></span></a>Implemented features</h4>
+
+<ul>
+<li>
+<strong>Hapiness MapView</strong>: Browse happniness around you in your city thanks to this mapView. You'll be able to center it in your location and zoom thanks to pinch gesture. Markers wi'll be expanded like cells!. If you need more details push over one of this.</li>
+<li>
+<strong>Add feeling to your city database</strong>: Choose your feeling in your current place selecting a color in the gradient selector. We'll calculate your feeling from your color selection. More over ( implemented in the future ) if you connect your social accounts we'll do a semantic analysis to get more information about your current context feeling . Amazing, isn't it? Felix cat we'll do magic with all this data. Photos will be able to be attached in a next release.</li>
+<li>
+<strong>Zone detail view</strong>: Get more detailed information about any area. Using our chart you'll take a global idea of it according to five parameters Felix has calculated. If you are looking more information, don't worry, scroll down and discover each detailed one in a percentage way.</li>
+</ul><h3>
+<a name="custom-controls" class="anchor" href="#custom-controls"><span class="octicon octicon-link"></span></a>Custom controls</h3>
+
+<p>Controls that we've created to get better UX in the app:</p>
+
+<ul>
+<li>
+<strong>gradientProgress</strong>: Animated gradient progress to add in tableviewCells. It includes a method to reset the progress and to animate it from 0 to a given percentage. </li>
+</ul><p><img src="http://img27.imageshack.us/img27/9710/7zlw.png" alt="image"></p>
+
+<h3>
+<a name="external-controls" class="anchor" href="#external-controls"><span class="octicon octicon-link"></span></a>External Controls</h3>
+
+<p>We would like to thanks all these control that have helped us to get faster in our development and add interesting features to improve our app. And thanks to CocoaPods too for its 3rd party libraries installation helper. 
+Here they are:</p>
+
+<pre><code>pod 'AFNetworking', '~&gt; 1.3.2'
+pod 'SVProgressHUD'
+pod 'QuickDialog'
+pod 'ADClusterMapView'
+pod 'NullSafe'
+pod 'UIKitCategoryAdditions', :git =&gt; 'https://github.com/pepibumur/UIKitCategoryAddi$
+pod 'RPRadarChart', :git =&gt; 'https://github.com/pepibumur/RPRadarChart.git'
+pod 'PPiAwesomeButton', :git =&gt; 'https://github.com/pepibumur/PPiAwesomeButton.git'
+pod 'PPiFlatSegmentedControl', :git =&gt; 'https://github.com/pepibumur/PPiFlatSegmented$
+pod 'FlatUIKit'
+pod 'XMLDictionary'
+pod 'DKLiveBlur', :git =&gt; 'https://github.com/pepibumur/DKLiveBlur.git'
+pod 'APParallaxHeader'
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h3>
+<a name="test-on-your-own" class="anchor" href="#test-on-your-own"><span class="octicon octicon-link"></span></a>Test on your own</h3>
+
+<ol>
+<li>Clone the repository and open iOS Folder</li>
+<li>Once in this directory install CocoaPods ( you'll find more information <a href="http://cocoapods.org/">here</a> about how to do it )</li>
+<li>After, execute from terminal <code>pod install</code> ( be sure you are in the iOS project folder in terminal )</li>
+<li>If everything goes well you should open the project <strong>from .xcworkspace</strong> file. </li>
+</ol><h3>
+<a name="some-screenshots" class="anchor" href="#some-screenshots"><span class="octicon octicon-link"></span></a>Some Screenshots</h3>
+
+<p><img src="http://imageshack.us/a/img546/4770/txlu.png" alt="image"><img src="http://imageshack.us/a/img841/6818/0lso.png" alt="image"><img src="http://imageshack.us/a/img7/3721/cfyh.png" alt="image"><img src="http://ppinera.es/iOSData/SmileSpaces/smile.gif" alt="image"></p>
 
 <h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a name="future-guidelines" class="anchor" href="#future-guidelines"><span class="octicon octicon-link"></span></a>Future guidelines</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<ul>
+<li>Introduce polygon layouts in mapview to bound more detailed areas</li>
+<li>Add feeling connection with Server ( including add photo feature in maps )</li>
+<li>Information Screen with some settings.</li>
+<li>Active notifications</li>
+<li>Gamification in users profiles </li>
+</ul><h2>
+<a name="android-backend" class="anchor" href="#android-backend"><span class="octicon octicon-link"></span></a>Android Backend</h2>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<h2>
+<a name="source" class="anchor" href="#source"><span class="octicon octicon-link"></span></a>Source</h2>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>We've found all these London Feeds to our dababase Backend. The solution is global so in the future is required to adapt this platform to another city we only have to link our system with the new city sources.
+Sources from London:</p>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<ul>
+<li>Transport for London: <a href="http://www.tfl.gov.uk">http://www.tfl.gov.uk</a>
+</li>
+<li>LondonAir API</li>
+</ul><h2>
+<a name="team" class="anchor" href="#team"><span class="octicon octicon-link"></span></a>Team</h2>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p><img src="http://imageshack.us/a/img22/4400/69bw.png" alt="image"><img src="http://img545.imageshack.us/img545/4845/7ifz.png" alt="image"><img src="http://imageshack.us/a/img546/7083/adv1.png" alt="image"></p>
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<ul>
+<li>
+<strong>Isaac Roldán</strong>: Web/Backend developer and Felix's father</li>
+<li>
+<strong>Fran Díaz</strong>: GodFather of Felix and </li>
+<li>
+<strong>LLorens Delgado</strong>: Android Developer</li>
+<li>
+<strong>Pedro Piñera</strong>: iOS Developer</li>
+</ul>
+        </section>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/pepibumur">pepibumur</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+        <aside id="sidebar">
+          <a href="https://github.com/pepibumur/SmileSpaces/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/pepibumur/SmileSpaces/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/pepibumur/SmileSpaces"></a> is maintained by <a href="https://github.com/pepibumur">pepibumur</a>.</p>
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
+
+  
   </body>
 </html>
