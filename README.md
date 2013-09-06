@@ -10,6 +10,8 @@ SmileSpaces is a interesting platform to find the best happy areas in your city 
 We've developed our platform using a know micro-framework web base on Python, **Flask**. The reason why chose it is that it's very fast, easy to implement and powerful.
 Although Flask has a Web Server for testing it's not recommended using it out of developing, that's the reason why we've complemented it with NGINX+GUNICORN. 
 
+If you w
+
 # iOS Application
 iOS application as a location mobile service has a main View with the map of the city ( depending on the version of the App ). In this view you'll be able to have a global sightseing of every zone with a smile/color indicating the happiness of zone. From this view you'll be able to open more details of the zone ( touching in the zone pin ) or share your feeling in the place where you are.
 
