@@ -100,9 +100,10 @@ Sources from London:
 
 ## Team
 ![image](http://imageshack.us/a/img22/4400/69bw.png)
+![image](http://img707.imageshack.us/img707/5892/0m6i.png)
 ![image](http://img545.imageshack.us/img545/4845/7ifz.png)
 ![image](http://imageshack.us/a/img546/7083/adv1.png)
-![image](http://img707.imageshack.us/img707/5892/0m6i.png)
+
 
 - **Isaac Roldán**: Web/Backend developer and Felix's father
 - **Fran Díaz**: GodFather of Felix and 
