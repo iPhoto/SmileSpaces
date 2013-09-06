@@ -1,34 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <title>Smilespaces by pepibumur</title>
 
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <title>Smilespaces by pepibumur</title>
   </head>
-
   <body>
-    <header>
-      <div class="inner">
+    <div class="wrapper">
+      <header>
         <h1>Smilespaces</h1>
-        <h2>SmileSpaces hack for something better repo</h2>
-        <a href="https://github.com/pepibumur/SmileSpaces" class="button"><small>View project on</small>GitHub</a>
-      </div>
-    </header>
+        <p>SmileSpaces hack for something better repo</p>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h1>
+        <p class="view"><a href="https://github.com/pepibumur/SmileSpaces">View the Project on GitHub <small>pepibumur/SmileSpaces</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/pepibumur/SmileSpaces/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/pepibumur/SmileSpaces/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/pepibumur/SmileSpaces">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
 <a name="smilespaces-platform" class="anchor" href="#smilespaces-platform"><span class="octicon octicon-link"></span></a>SmileSpaces Platform</h1>
 
 <p><img src="http://img27.imageshack.us/img27/8845/bukb.png" alt="image"></p>
@@ -39,6 +39,65 @@
 
 <h1>
 <a name="web-server-backend" class="anchor" href="#web-server-backend"><span class="octicon octicon-link"></span></a>Web Server Backend</h1>
+
+<p>We've developed our platform using a python based micro-framework, <strong>Flask</strong>. The reason why we did chose it is that it's very fast, easy to implement and powerful.
+Although Flask has a Web Server for testing it's not recommended using it out of developing, that's the reason why we've deployed our server using NGINX+GUNICORN. SQLite database is the chosen solution for our initial project.</p>
+
+<p>If you want to test it you don't need this configuration. Only download the serverSmile project and execute:</p>
+
+<div class="highlight"><pre><span class="n">python</span> <span class="n">runSmile</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+
+<h4>
+<a name="requiremens" class="anchor" href="#requiremens"><span class="octicon octicon-link"></span></a>Requiremens</h4>
+
+<ul>
+<li>Python 2.7</li>
+<li>Flask</li>
+<li>Flask-SQLAlchemy</li>
+<li>Flask-Admin</li>
+</ul><p>( You can install all of them using PIP command )</p>
+
+<h3>
+<a name="api-requests" class="anchor" href="#api-requests"><span class="octicon octicon-link"></span></a>API Requests</h3>
+
+<p>File views.py includes all web paths that our API is able to process. Here you have a list of them:</p>
+
+<ul>
+<li>
+<strong>/api/1/City</strong>: [GET] To get a list of all the cities</li>
+<li>
+<strong>/api/1/City/"cityID"</strong>: [GET] To get the information of a given city (by ID)</li>
+<li>
+<strong>/api/1/City/"cityID"</strong>: [PUT] Update the information of a given city (by ID)</li>
+<li>
+<strong>/api/1/City</strong>: [POST] Create a new City</li>
+<li>
+<strong>/api/1/City/"cityID"</strong>: [DELETE] Delete an existing City</li>
+<li>
+<strong>/api/1/Cell/City/"cityID"</strong>: [GET] Get a list of all the zones of a City</li>
+<li>
+<strong>/api/1/Cell/"cellID"</strong>: [GET] Get detailed info for given cell (by ID)</li>
+<li>
+<strong>/api/1/Cell/"cellID"</strong>: [PUT] Update the information of a given Cell (By ID)</li>
+<li>
+<strong>/api/1/Cell</strong>: [POST] Create a new zone</li>
+<li>
+<strong>/api/1/Cell/"cellID"</strong>: [DELETE] Delete a given zone</li>
+<li>
+<strong>/api/1/Data/"cellID"</strong>: [GET] Get detailed parameters info of a Cell</li>
+<li>
+<strong>/api/1/Data</strong>: [POST] Create a new data object</li>
+<li>
+<strong>/api/1/Data/"dataID"</strong>: [PUT] Update an existing data object</li>
+<li>
+<strong>/api/1/Data/"dataID"</strong>: [DELETE] Delete an existing data object</li>
+</ul><p><em>Note: Some REST request may not be implemented. We're working on these features. Some of them may not be working correctly, sorry for the inconvenience, we are on Alpha :)</em></p>
+
+<h3>
+<a name="admin-view" class="anchor" href="#admin-view"><span class="octicon octicon-link"></span></a>Admin view</h3>
+
+<p>Thanks to Flask-Admin you'll have access to an Admin panel and take control over the backend data. The URL to access it is: <a href="http://127.0.0.1:5000/admin">http://127.0.0.1:5000/admin</a></p>
 
 <h1>
 <a name="ios-application" class="anchor" href="#ios-application"><span class="octicon octicon-link"></span></a>iOS Application</h1>
@@ -126,7 +185,7 @@ Sources from London:</p>
 </ul><h2>
 <a name="team" class="anchor" href="#team"><span class="octicon octicon-link"></span></a>Team</h2>
 
-<p><img src="http://imageshack.us/a/img22/4400/69bw.png" alt="image"><img src="http://img545.imageshack.us/img545/4845/7ifz.png" alt="image"><img src="http://imageshack.us/a/img546/7083/adv1.png" alt="image"></p>
+<p><img src="http://imageshack.us/a/img22/4400/69bw.png" alt="image"><img src="http://img707.imageshack.us/img707/5892/0m6i.png" alt="image"><img src="http://img545.imageshack.us/img545/4845/7ifz.png" alt="image"><img src="http://imageshack.us/a/img546/7083/adv1.png" alt="image"></p>
 
 <ul>
 <li>
@@ -138,25 +197,13 @@ Sources from London:</p>
 <li>
 <strong>Pedro Piñera</strong>: iOS Developer</li>
 </ul>
-        </section>
-
-        <aside id="sidebar">
-          <a href="https://github.com/pepibumur/SmileSpaces/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/pepibumur/SmileSpaces/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/pepibumur/SmileSpaces"></a> is maintained by <a href="https://github.com/pepibumur">pepibumur</a>.</p>
-
-          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/pepibumur">pepibumur</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
     </div>
-
-  
+    <script src="javascripts/scale.fix.js"></script>
+    
   </body>
 </html>
