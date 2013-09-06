@@ -33,6 +33,8 @@ public class CityGrid {
 					cellsJSONArray.getJSONObject(i).getDouble("centerLon"));
 			current.parseFelixParameters(cellsJSONArray.getJSONObject(i));
 			
+			cityCells.add(current);
+			
 			BitmapDescriptor markerIcon;
 			if(current.smileValue<25){
 				markerIcon = cellMarkerIcons[0];

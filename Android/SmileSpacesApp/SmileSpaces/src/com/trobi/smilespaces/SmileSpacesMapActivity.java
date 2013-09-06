@@ -29,6 +29,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.trobi.abstractclasses.Cell;
 import com.trobi.abstractclasses.CityGrid;
 
 public class SmileSpacesMapActivity extends FragmentActivity implements LocationListener, OnMarkerClickListener {
@@ -160,9 +161,15 @@ public class SmileSpacesMapActivity extends FragmentActivity implements Location
 		Log.i("OnMarkerClick Callback", "Clicked marker num = "+(markersList.indexOf(clickedMarker)+1));
 		if(markersList.indexOf(clickedMarker) > 0){
 			locationManager.removeUpdates(this);
-
+			
+			Cell clickedCell = LondonCityGrid.cityCells.get(markersList.indexOf(clickedMarker));
 			Intent intent = new Intent(getApplicationContext(), CellInfoActivity.class);
-			intent.putExtra("cell_id", markersList.indexOf(clickedMarker)+1);
+			intent.putExtra("felixEnvironment", clickedCell.felixEnvironment);
+			intent.putExtra("felixSecurity", clickedCell.felixSecurity);
+			intent.putExtra("felixCultural", clickedCell.felixCultural);
+			intent.putExtra("felixOpinion", clickedCell.felixOpinion);
+			intent.putExtra("felixServices", clickedCell.felixServices);
+			intent.putExtra("cell_id", markersList.indexOf(clickedMarker));
 			startActivity(intent);
 		}
 		

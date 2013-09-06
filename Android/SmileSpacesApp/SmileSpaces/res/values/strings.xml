@@ -8,6 +8,6 @@
     <string name="marker_me">You are here!</string>
     <string name="marker_me_snippet">This is your current location.</string>
     <string name="title_activity_addfeeling">AddfeelingActivity</string>
-    <string name="title_activity_cell_info">CellInfo</string>
+    <string name="title_activity_cell_info">Zone detail</string>
 
 </resources>
