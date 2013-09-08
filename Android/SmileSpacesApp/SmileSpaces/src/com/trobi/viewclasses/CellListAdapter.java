@@ -12,7 +12,13 @@ import android.widget.BaseAdapter;
 import com.trobi.abstractclasses.Cell;
 
 public class CellListAdapter extends BaseAdapter{
-
+	
+	private static final String BLUE_CULTURAL_CAT = "#1fcdf7";
+	private static final String GREEN_ENVIRONMENT_CAT = "#42f19d";
+	private static final String RED_SECURITY_CAT = "#fc477c";
+	private static final String PURPLE_SERVICES_CAT = "#dc64e7";
+	private static final String YELLOW_OPINION_CAT = "#fecc4b";
+	
 	// ListAdapter
 	final Context mContext;
 	final List<Row> rows;
@@ -23,55 +29,55 @@ public class CellListAdapter extends BaseAdapter{
 		
 		rows.add(new CategoryHeader(LayoutInflater.from(mContext), "Cultural & Sport"));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Museums", currentCell.museums));
+				LayoutInflater.from(mContext), BLUE_CULTURAL_CAT, "Museums", currentCell.museums));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Sports centers", currentCell.sportsCenters));
+				LayoutInflater.from(mContext), BLUE_CULTURAL_CAT, "Sports centers", currentCell.sportsCenters));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Bookshops", currentCell.bookShops));
+				LayoutInflater.from(mContext), BLUE_CULTURAL_CAT, "Bookshops", currentCell.bookShops));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Theatres", currentCell.theatres));
+				LayoutInflater.from(mContext), BLUE_CULTURAL_CAT, "Theatres", currentCell.theatres));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Trourist attractions", currentCell.touristAttractions));
+				LayoutInflater.from(mContext), BLUE_CULTURAL_CAT, "Trourist attractions", currentCell.touristAttractions));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Leisure areas", currentCell.leisureAreas));
+				LayoutInflater.from(mContext), BLUE_CULTURAL_CAT, "Leisure areas", currentCell.leisureAreas));
 		
 		rows.add(new CategoryHeader(LayoutInflater.from(mContext), "Environment"));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Parks", currentCell.parks));
+				LayoutInflater.from(mContext), GREEN_ENVIRONMENT_CAT, "Parks", currentCell.parks));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Gardens", currentCell.country));
+				LayoutInflater.from(mContext), GREEN_ENVIRONMENT_CAT, "Gardens", currentCell.country));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Ecological footprint", currentCell.ecologicalFootprint));
+				LayoutInflater.from(mContext), GREEN_ENVIRONMENT_CAT, "Ecological footprint", currentCell.ecologicalFootprint));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "CO2 Emissions", currentCell.co2Emissions));
+				LayoutInflater.from(mContext), GREEN_ENVIRONMENT_CAT, "CO2 Emissions", currentCell.co2Emissions));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Noise", currentCell.acousticPullution));
+				LayoutInflater.from(mContext), GREEN_ENVIRONMENT_CAT, "Noise", currentCell.acousticPullution));
 		
 		rows.add(new CategoryHeader(LayoutInflater.from(mContext), "Opinion"));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Happy surveis", currentCell.happySurveis));
+				LayoutInflater.from(mContext), YELLOW_OPINION_CAT, "Happy surveis", currentCell.happySurveis));
 		
 		rows.add(new CategoryHeader(LayoutInflater.from(mContext), "Security"));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Thefts", currentCell.stealing));
+				LayoutInflater.from(mContext), RED_SECURITY_CAT, "Thefts", currentCell.stealing));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Fires", currentCell.fires));
+				LayoutInflater.from(mContext), RED_SECURITY_CAT, "Fires", currentCell.fires));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Crime ratio", currentCell.crimeRatio));
+				LayoutInflater.from(mContext), RED_SECURITY_CAT, "Crime ratio", currentCell.crimeRatio));
 		
 		rows.add(new CategoryHeader(LayoutInflater.from(mContext), "Services & Health"));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Public toilets", currentCell.publicToilets));
+				LayoutInflater.from(mContext), PURPLE_SERVICES_CAT, "Public toilets", currentCell.publicToilets));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Schools", currentCell.schools));
+				LayoutInflater.from(mContext), PURPLE_SERVICES_CAT, "Schools", currentCell.schools));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Hospitals", currentCell.hospitals));
+				LayoutInflater.from(mContext), PURPLE_SERVICES_CAT, "Hospitals", currentCell.hospitals));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Health centers", currentCell.healthCenters));
+				LayoutInflater.from(mContext), PURPLE_SERVICES_CAT, "Health centers", currentCell.healthCenters));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Educational centers", currentCell.educationalCenters));
+				LayoutInflater.from(mContext), PURPLE_SERVICES_CAT, "Educational centers", currentCell.educationalCenters));
 		rows.add(new ValueRow(
-				LayoutInflater.from(mContext), null, "Railway station", currentCell.railwayStations));
+				LayoutInflater.from(mContext), PURPLE_SERVICES_CAT, "Railway station", currentCell.railwayStations));
 		
 	}
 
