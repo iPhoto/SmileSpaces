@@ -4,6 +4,9 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.FrameLayout.LayoutParams;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.nineoldandroids.animation.ValueAnimator;
@@ -37,6 +40,8 @@ public class ValueRow extends Row {
 			holder.setCategoryColorView(viewGroup.findViewById(R.id.categoryColorView));
 			holder.setValueNameTextView((TextView) viewGroup.findViewById(R.id.valueNameTextView));
 			holder.setValueTextView((TextView) viewGroup.findViewById(R.id.valueTextView));
+			holder.setProgressBarViewFixed(viewGroup.findViewById(R.id.valueProgressBarFixed));
+			holder.setProgressBarViewAnimated(viewGroup.findViewById(R.id.valueProgressBarAnimated));
 			viewGroup.setTag(holder);
 
 			view = viewGroup;
@@ -47,15 +52,19 @@ public class ValueRow extends Row {
 		}
 
 		//actually setup the view
-		holder.getCategoryColorView().setBackgroundColor(Color.parseColor(categoryColor));
-		
+		holder.getCategoryColorView().setBackgroundColor(Color.parseColor(categoryColor));		
 		holder.getValueNameTextView().setText(valueName);
 		holder.getValueTextView().setText("0%");
+		
+		final int fixedStepViewWidth = holder.getProgressBarViewFixed().getWidth()/100;
 		ValueAnimator anim = ValueAnimator.ofInt(0, value);
 		anim.addUpdateListener(new AnimatorUpdateListener() {
 			@Override
 			public void onAnimationUpdate(ValueAnimator animation) {
 				int val = (Integer) animation.getAnimatedValue();
+				RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) holder.getProgressBarViewAnimated().getLayoutParams();
+				params.width = fixedStepViewWidth*(100 - val);
+				holder.getProgressBarViewAnimated().setLayoutParams(params);
 				holder.getValueTextView().setText(val+"%");
 			}
 		});
@@ -73,6 +82,8 @@ public class ValueRow extends Row {
 		private View categoryColorView;
 		private TextView valueNameTextView;
 		private TextView valueTextView;
+		private View progressBarViewAnimated;
+		private View progressBarViewFixed;
 		
 		public View getCategoryColorView() {
 			return categoryColorView;
@@ -92,7 +103,18 @@ public class ValueRow extends Row {
 		public void setValueTextView(TextView valueTextView) {
 			this.valueTextView = valueTextView;
 		}
-		
+		public View getProgressBarViewAnimated() {
+			return progressBarViewAnimated;
+		}
+		public void setProgressBarViewAnimated(View progressBarViewAnimated) {
+			this.progressBarViewAnimated = progressBarViewAnimated;
+		}
+		public View getProgressBarViewFixed() {
+			return progressBarViewFixed;
+		}
+		public void setProgressBarViewFixed(View progressBarViewFixed) {
+			this.progressBarViewFixed = progressBarViewFixed;
+		}	
 		
 	}
 }

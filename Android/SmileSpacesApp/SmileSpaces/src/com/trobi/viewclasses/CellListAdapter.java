@@ -51,6 +51,8 @@ public class CellListAdapter extends BaseAdapter{
 		rows.add(new ValueRow(
 				LayoutInflater.from(mContext), GREEN_ENVIRONMENT_CAT, "CO2 Emissions", currentCell.co2Emissions));
 		rows.add(new ValueRow(
+				LayoutInflater.from(mContext), GREEN_ENVIRONMENT_CAT, "Trees", currentCell.trees));
+		rows.add(new ValueRow(
 				LayoutInflater.from(mContext), GREEN_ENVIRONMENT_CAT, "Noise", currentCell.acousticPullution));
 		
 		rows.add(new CategoryHeader(LayoutInflater.from(mContext), "Opinion"));
@@ -70,6 +72,8 @@ public class CellListAdapter extends BaseAdapter{
 				LayoutInflater.from(mContext), PURPLE_SERVICES_CAT, "Public toilets", currentCell.publicToilets));
 		rows.add(new ValueRow(
 				LayoutInflater.from(mContext), PURPLE_SERVICES_CAT, "Schools", currentCell.schools));
+		rows.add(new ValueRow(
+				LayoutInflater.from(mContext), PURPLE_SERVICES_CAT, "Suicide rate", currentCell.suicideRate));
 		rows.add(new ValueRow(
 				LayoutInflater.from(mContext), PURPLE_SERVICES_CAT, "Hospitals", currentCell.hospitals));
 		rows.add(new ValueRow(
