@@ -9,5 +9,6 @@
     <string name="marker_me_snippet">This is your current location.</string>
     <string name="title_activity_addfeeling">AddfeelingActivity</string>
     <string name="title_activity_cell_info">Zone detail</string>
+    <string name="social_analysis">Social analysis</string>
 
 </resources>

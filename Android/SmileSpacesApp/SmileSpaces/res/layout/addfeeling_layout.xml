@@ -81,11 +81,11 @@
         android:background="@color/grey_background" >
 
         <TextView
-            android:id="@+id/sizeYourFeelingTextView"
+            android:id="@+id/socialAnalysisTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Social analysis"
+            android:text="@string/social_analysis"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/grey_font" />
     </FrameLayout>
@@ -107,17 +107,22 @@
             android:textColor="@android:color/white" />
 
         <ToggleButton
-            android:id="@+id/toggleButton1"
+            android:id="@+id/toggleButton0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="right|center_vertical"
             android:layout_marginRight="5dp"
-            android:text="ToggleButton" />
+            android:background="@drawable/toggle_button"
+            android:minHeight="32dip"
+            android:textColor="@color/greensea"
+            android:textOff="OFF"
+            android:textOn="ON"
+            android:textSize="19sp" />
 
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/thickSeparator"
+        android:id="@+id/thickSeparator1"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/grey_background" >
@@ -143,14 +148,19 @@
             android:id="@+id/toggleButton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="right|center_vertical"
             android:layout_marginRight="5dp"
-            android:text="ToggleButton" />
+            android:background="@drawable/toggle_button"
+            android:minHeight="32dip"
+            android:textColor="@color/greensea"
+            android:textOff="OFF"
+            android:textOn="ON"
+            android:textSize="19sp" />
 
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/thickSeparator"
+        android:id="@+id/thickSeparator2"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/grey_background" >
@@ -173,17 +183,22 @@
             android:textColor="@android:color/white" />
 
         <ToggleButton
-            android:id="@+id/toggleButton1"
+            android:id="@+id/toggleButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="right|center_vertical"
             android:layout_marginRight="5dp"
-            android:text="ToggleButton" />
+            android:background="@drawable/toggle_button"
+            android:minHeight="32dip"
+            android:textColor="@color/greensea"
+            android:textOff="OFF"
+            android:textOn="ON"
+            android:textSize="19sp" />
 
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/thickSeparator"
+        android:id="@+id/thickSeparator3"
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:background="@color/grey_background" >
