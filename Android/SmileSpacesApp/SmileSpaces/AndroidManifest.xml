@@ -42,7 +42,7 @@
         <activity
             android:name="com.trobi.smilespaces.AddfeelingActivity"
             android:label="@string/title_activity_addfeeling"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+            android:theme="@android:style/Theme.Holo.Light.DarkActionBar" >
         </activity>
         <activity
             android:name="com.trobi.smilespaces.CellInfoActivity"

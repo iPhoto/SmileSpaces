@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="center_map">&#xf124;</string>
-    <string name="add_feeling">&#xf004; Add feeling</string>  
+    <string name="add_feeling">&#xf004; Add feeling</string>
+    <string name="submit_feeling">&#xf004;  Submit this feeling</string>
+    <string name="add_photograph_addfeeling">&#xf067; Add photograph</string>
+    <string name="colour_addfeeling">&#xf044; Colour your mood</string>
+    <string name="facebook_addfeeling">&#xf09a;  Facebook</string>
+    <string name="twitter_addfeeling">&#xf099;  Twitter</string>
+    <string name="github_addfeeling">&#xf09b;  Github</string>
+    <string name="title_addfeeling">Size your feeling</string>
+    <string name="social_addfeeling">Social analysis</string>
 </resources>

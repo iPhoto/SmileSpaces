@@ -1,11 +1,210 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     tools:context=".AddfeelingActivity" >
 
-</RelativeLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_background" >
+
+        <TextView
+            android:id="@+id/sizeYourFeelingTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/title_addfeeling"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/grey_font" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/FrameLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_button_selector"
+        android:onClick="launchColorPicker" >
+
+        <FrameLayout
+            android:id="@+id/categoryColorView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="5dp"
+            android:background="@android:color/white"
+            android:onClick="launchColorPicker" >
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/addColourTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:text="@string/colour_addfeeling"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/color_text_button" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/thickSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey_background" >
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_button_selector"
+        android:clickable="true"
+        android:minHeight="50dp" >
+
+        <TextView
+            android:id="@+id/addPhotoTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:text="@string/add_photograph_addfeeling"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/color_text_button" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_background" >
+
+        <TextView
+            android:id="@+id/sizeYourFeelingTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Social analysis"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/grey_font" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/greensea"
+        android:minHeight="50dp" >
+
+        <TextView
+            android:id="@+id/facebookTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:text="@string/facebook_addfeeling"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
+
+        <ToggleButton
+            android:id="@+id/toggleButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="5dp"
+            android:text="ToggleButton" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/thickSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey_background" >
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/greensea"
+        android:minHeight="50dp" >
+
+        <TextView
+            android:id="@+id/twitterTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:text="@string/twitter_addfeeling"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
+
+        <ToggleButton
+            android:id="@+id/toggleButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="5dp"
+            android:text="ToggleButton" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/thickSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey_background" >
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/greensea"
+        android:minHeight="50dp" >
+
+        <TextView
+            android:id="@+id/githubTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:text="@string/github_addfeeling"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
+
+        <ToggleButton
+            android:id="@+id/toggleButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="5dp"
+            android:text="ToggleButton" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/thickSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/grey_background" >
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_button_selector"
+        android:minHeight="50dp"
+        android:onClick="submitQuery" >
+
+        <TextView
+            android:id="@+id/submitTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:text="@string/submit_feeling"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/color_text_button" />
+    </FrameLayout>
+
+</LinearLayout>

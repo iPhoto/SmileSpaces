@@ -100,7 +100,8 @@ public class SmileSpacesMapActivity extends FragmentActivity implements Location
 		addFeelingButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "Add feeling", Toast.LENGTH_SHORT).show();
+				Intent intent = new Intent(getApplicationContext(), AddfeelingActivity.class);
+				startActivity(intent);
 			}
 		});
 	}
