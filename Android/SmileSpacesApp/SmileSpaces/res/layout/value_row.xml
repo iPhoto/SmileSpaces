@@ -13,14 +13,14 @@
     <FrameLayout
         android:id="@+id/categoryColorView"
         android:layout_width="10dp"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:background="@android:color/white"
         android:minHeight="40dp" />
 
     <TextView
         android:id="@+id/valueNameTextView"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_margin="5dp"
         android:layout_marginLeft="8dp"
@@ -34,7 +34,7 @@
     <TextView
         android:id="@+id/valueTextView"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/valueNameTextView"
         android:layout_marginRight="10dp"
@@ -43,5 +43,25 @@
         android:textAlignment="viewEnd"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@android:color/white" />
+
+    <RelativeLayout
+        android:id="@+id/valueProgressBarFixed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/categoryColorView"
+        android:background="@drawable/ryg_color_gradient"
+        android:minHeight="4dp" >
+
+        <FrameLayout
+            android:id="@+id/valueProgressBarAnimated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="#283E50"
+            android:minHeight="4dp" >
+
+        </FrameLayout>
+
+    </RelativeLayout>
 
 </RelativeLayout>
